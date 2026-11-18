@@ -1,0 +1,21 @@
+name: Feature request
+description: An idea for the VirtualPort build, for example another system to build for
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas for the remote desktop itself belong to
+        [RustDesk](https://github.com/rustdesk/rustdesk/discussions/categories/feature-request).
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should VirtualPort do differently from RustDesk?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The work it would help with.

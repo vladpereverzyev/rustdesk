@@ -1,0 +1,24 @@
+VirtualPort
+Copyright (C) 2026 Vladyslav Pereverzyev
+
+VirtualPort is a modified version of RustDesk, changed from November 2026 on.
+RustDesk is Copyright (C) Purslane Tech Pte. Ltd. and the RustDesk contributors,
+https://github.com/rustdesk/rustdesk
+
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU Affero General Public License version 3 as published by the
+Free Software Foundation (see LICENCE).
+
+This program is distributed in the hope that it will be useful but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+The name "VirtualPort", the VP logo and the Vladyslav Pereverzyev signature in
+res/virtualport/ are not licensed under the AGPL-3.0.
+
+RustDesk is a trademark of its owners. VirtualPort is not affiliated with or
+endorsed by the RustDesk project. Other product names and trademarks mentioned
+in this project belong to their respective owners.
+
+This product includes third-party software distributed under its own license.
+See THIRD-PARTY-NOTICES.md.

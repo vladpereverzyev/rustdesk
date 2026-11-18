@@ -1,4 +1,4 @@
-name: VirtualPort Windows build
+name: Build & Release
 
 # Builds the VirtualPort portable exe for Windows x64 from this fork.
 # It runs on every push to the virtualport branch; a v* tag also publishes a release.
@@ -13,7 +13,12 @@ on:
     branches:
       - virtualport
     paths-ignore:
-      - "README.md"
+      - "**.md"
+      - "NOTICE"
+      - "CITATION.cff"
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/dependabot.yml"
+      - ".github/workflows/codeql.yml"
     tags:
       - "v*"
 
