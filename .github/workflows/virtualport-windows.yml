@@ -4,12 +4,16 @@ name: VirtualPort Windows build
 # It runs on every push to the virtualport branch; a v* tag also publishes a release.
 # The build steps follow build-for-windows-flutter in flutter-build.yml, without the
 # signing, MSI, arm64 and update metadata parts that need RustDesk's own secrets.
+# The usbmmidd virtual display driver is left out: it is a third-party binary without a
+# clear license to redistribute it.
 
 on:
   workflow_dispatch:
   push:
     branches:
       - virtualport
+    paths-ignore:
+      - "README.md"
     tags:
       - "v*"
 
@@ -111,12 +115,6 @@ jobs:
         run: |
           python3 .\build.py --portable --flutter --skip-portable-pack --hwcodec --vram
           mv ./flutter/build/windows/x64/runner/Release ./rustdesk
-
-          Invoke-WebRequest -Uri https://github.com/rustdesk-org/rdev/releases/download/usbmmidd_v2/usbmmidd_v2.zip -OutFile usbmmidd_v2.zip
-          Expand-Archive usbmmidd_v2.zip -DestinationPath .
-          Remove-Item -Path usbmmidd_v2\Win32 -Recurse
-          Remove-Item -Path "usbmmidd_v2\deviceinstaller64.exe", "usbmmidd_v2\deviceinstaller.exe", "usbmmidd_v2\usbmmidd.bat"
-          mv -Force .\usbmmidd_v2 ./rustdesk
 
       - name: Build the single exe
         shell: bash
