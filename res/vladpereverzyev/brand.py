@@ -1272,6 +1272,29 @@ def narrow_settings():
                  "              ).marginOnly(left: 16, right: 16),\n")
     replace_once(settings, "                ).marginSymmetric(horizontal: 2, vertical: 4),\n",
                  "                ).marginSymmetric(vertical: 4),\n")
+    # _Button put its button in a Row at its intrinsic width, so a long label (Install the
+    # printer) ran past the card. Let it fill the width between the margins and centre the text.
+    replace_once(
+        settings,
+        "    child: Text(\n"
+        "      translate(label),\n"
+        "    ).marginSymmetric(horizontal: 15),\n"
+        "    style: style,",
+        "    child: Text(\n"
+        "      translate(label),\n"
+        "      textAlign: TextAlign.center,\n"
+        "    ).marginSymmetric(horizontal: 15),\n"
+        "    style: style,",
+    )
+    replace_once(
+        settings,
+        "  return Row(children: [\n"
+        "    child,\n"
+        "  ]).marginOnly(left: _kContentHMargin);",
+        "  return Row(children: [\n"
+        "    Expanded(child: child),\n"
+        "  ]).marginOnly(left: _kContentHMargin, right: _kContentHMargin);",
+    )
 
 
 def title_buttons():
