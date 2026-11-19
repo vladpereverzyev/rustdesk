@@ -1,6 +1,7 @@
 # Vladyslav Pereverzyev
 
 [![Build & Release](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml/badge.svg)](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml)
+[![Latest release](https://img.shields.io/github/v/release/vladpereverzyev/rustdesk?cacheSeconds=300)](https://github.com/vladpereverzyev/rustdesk/releases)
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENCE)
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/vladpereverzyev/rustdesk/blob/vladpereverzyev/README.md)
@@ -24,15 +25,21 @@ reach it from the original RustDesk too.
 | --- | --- |
 | Windows 10 and 11, 64 bit | `vladpereverzyev.exe` from the [latest release](https://github.com/vladpereverzyev/rustdesk/releases/latest) |
 
-Until the first release, the exe of each build is attached to its run in
-[Actions](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml).
+The download needs no installation: it runs as it is. It can be renamed, for example to
+`Vladyslav Pereverzyev.exe`, so the icon on the Desktop shows the name.
 
 ## How to use it
 
+
 - Open `vladpereverzyev.exe`. The window shows the ID and a one-time password of this
-  computer: give them to the person who helps you.
+  computer: give them to the person who helps you. One click on the ID or the password copies
+  it.
 - To reach a computer when nobody sits in front of it, install the app on it (the Install button
   at the bottom) and set a permanent password with the pencil next to the password.
+
+The window always keeps the same small size. The menu button at the top opens the settings in
+the same window, as a list of pages with a back arrow.
+
 
 Allow a connection only to people you know. Somebody who has the ID and the password can see the
 screen, use the mouse and open the files of that computer.
@@ -44,8 +51,10 @@ of this repository:
 
 1. When it starts, the app asks GitHub for the latest release and compares its number with its
    own.
-2. When a newer release is out, a window asks whether to update now or later. A card at the
-   bottom of the left panel stays, with a link to what changed, for those who chose later.
+2. When a newer release is out, a window asks whether to update now or later. A card in the
+   main window stays, with a link to what changed, for those who chose later.
+
+
 3. Nothing is downloaded or installed until the user presses Update: there is no automatic
    update. The app then downloads the new `vladpereverzyev.exe` with a progress bar, installs
    it over the old one once no session is open and starts again. Windows may ask for
@@ -104,6 +113,10 @@ health data. Before you let somebody in:
 
 This section explains how the app works. It is not legal advice.
 
+The About page of the app says the same in short, with the version and the links to the source
+code and the licence.
+
+
 ## What is in it
 
 This branch keeps the RustDesk code as it is. My changes live in a few places:
@@ -116,9 +129,9 @@ This branch keeps the RustDesk code as it is. My changes live in a few places:
 - `.github/workflows/build.yml` builds the Windows x64 exe on every push to this branch and
   publishes a release for every `v*` tag.
 
-The technical name of the app is `vladpereverzyev`: Windows uses it for the exe, the service,
-the install folder and the shortcuts, because RustDesk allows only letters there. Everything
-people read, from the window title to the list of installed apps, says Vladyslav Pereverzyev.
+The technical name of the app is `vladpereverzyev`: Windows uses it for the exe, the service
+and the install folder, because RustDesk allows only letters there. Everything people read, from
+the window title and the shortcuts to the list of installed apps, says Vladyslav Pereverzyev.
 
 The `master` branch follows [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk). New
 RustDesk versions are merged from `master` into `vladpereverzyev`.
@@ -147,6 +160,24 @@ On Windows, open PowerShell in the folder of the download and run:
 ```powershell
 Get-FileHash .\vladpereverzyev.exe -Algorithm SHA256
 ```
+
+## Warranty and liability
+
+The app is free software and comes as it is, without any warranty, as sections 15 and 16 of the
+[AGPL-3.0](LICENCE) say. As far as the law allows, I am not liable for any damage that comes from
+using the app or from not being able to use it: for example lost or changed data, a computer
+that stops working, a session that does not connect or the work lost while waiting.
+
+Whoever runs the app on a computer decides who may reach it and is responsible for that computer
+and its data, patient data included. Under the GDPR the lab or the clinic stays the data
+controller of its own data. The RustDesk servers, GitHub and the networks in between are run by
+others and I have no control over them.
+
+The app is a tool for remote help. It is not a medical device and plays no part in the diagnosis
+or the treatment of patients.
+
+Nothing in this README limits the rights that the law of your country gives you and that cannot
+be waived. When I help a customer for work, the written agreement between us applies.
 
 ## Contributing
 
