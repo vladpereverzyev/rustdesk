@@ -8,6 +8,25 @@ Run it from the repository root before the build, after the submodules are check
 
 The changes are applied to the working tree only, so the upstream sources stay untouched
 in git and the fork can follow RustDesk with a plain merge.
+
+Maintenance after a RustDesk update:
+
+Every patch matches an exact piece of RustDesk source. When a patch no longer finds its
+match the script stops, naming the file and the text it looked for, so a broken patch fails
+the build instead of producing a wrong app. The script runs as the first step of the build,
+so a break shows in about a minute, not after the whole compile. After merging a new RustDesk
+into this branch, run the script, fix what it reports one patch at a time, then run it again.
+
+The patches most likely to break, to check first:
+- about_page() rewrites the whole _AboutState class, up to the //#endregion marker.
+- connection_window() rewrites whole blocks of server_page.dart: buildConnectionCard up to
+  class _AppIcon, the connection manager header build and the button builder. A refactor of
+  that page breaks these.
+- theme(), updates() and polish() insert whole blocks into desktop_home_page.dart and
+  desktop_setting_page.dart: the help cards and the narrow settings menu.
+- replace_all() calls carry an exact count (DARK_COLOURS, the icon sizes). When RustDesk adds
+  or removes one use the count stops matching: update the number.
+- about-translations.json keeps one entry per text of ABOUT_TEXTS, for every language.
 """
 
 from pathlib import Path
@@ -1247,6 +1266,12 @@ def narrow_settings():
                  "        contentPadding: EdgeInsets.only(left: 15, right: 0),\n        minLeadingWidth: 0,")
     replace_once(settings, "const Divider(height: 1, indent: 16, endIndent: 16);",
                  "const Divider(height: 1, indent: 15, endIndent: 0);")
+    # The Unlock Security/Network Settings button had only a left margin, so it ran wider than
+    # the cards below it. Give it the same left and right margins and let the pill fill its card.
+    replace_once(settings, "              ).marginOnly(left: _kCardLeftMargin),\n",
+                 "              ).marginOnly(left: 16, right: 16),\n")
+    replace_once(settings, "                ).marginSymmetric(horizontal: 2, vertical: 4),\n",
+                 "                ).marginSymmetric(vertical: 4),\n")
 
 
 def title_buttons():
