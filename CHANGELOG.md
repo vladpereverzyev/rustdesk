@@ -9,6 +9,8 @@ changes to the remote desktop itself are in the
 
 - About: a line says that the app comes as it is, without warranty, and points to the README
   and the licence for the details. It is translated into every language of the app.
+- The app is always dark: the Theme card is gone from the General page and a light or system
+  theme saved before is ignored.
 
 ## 1.0.1 (2026-11-19)
 

@@ -93,14 +93,18 @@ def theme():
     common = "flutter/lib/common.dart"
     home = "flutter/lib/desktop/pages/desktop_home_page.dart"
 
-    # Dark by default, in the colours of vladpereverzyev.com. "Follow system" and light stay
-    # available in the settings.
+    # Always dark, in the colours of vladpereverzyev.com: a saved light or system theme is
+    # ignored, no other window can switch the theme and the Theme card of the General page is
+    # gone.
     replace_once(
         common,
         "return themeModeFromString(bind.mainGetLocalOption(key: kCommConfKeyTheme));",
-        "final v = bind.mainGetLocalOption(key: kCommConfKeyTheme);\n"
-        "    return v.isEmpty ? ThemeMode.dark : themeModeFromString(v);",
+        "return ThemeMode.dark;",
     )
+    replace_once(common, "    Get.changeThemeMode(mode);",
+                 "    mode = ThemeMode.dark;\n    Get.changeThemeMode(mode);")
+    replace_once("flutter/lib/desktop/pages/desktop_setting_page.dart",
+                 "        if (!isWeb) service(),\n        theme(),\n", "        if (!isWeb) service(),\n")
     for old, new, count in DARK_COLOURS:
         replace_all(common, f"Color(0xFF{old})", f"Color(0xFF{new})", count)
     replace_once(
