@@ -23,7 +23,7 @@ reach it from the original RustDesk too.
 
 | Where | How |
 | --- | --- |
-| Windows 10 and 11, 64 bit | `vladpereverzyev.exe` from the [latest release](https://github.com/vladpereverzyev/rustdesk/releases/latest) |
+| Windows 10 and 11, 64 bit | `VladyslavPereverzyev.exe` from the [latest release](https://github.com/vladpereverzyev/rustdesk/releases/latest) |
 
 The download needs no installation: it runs as it is. It can be renamed, for example to
 `Vladyslav Pereverzyev.exe`, so the icon on the Desktop shows the name.
@@ -32,7 +32,7 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 
 ![The main window with the ID and the one-time password, the list of the settings pages and the General page](docs/images/main-window.png)
 
-- Open `vladpereverzyev.exe`. The window shows the ID and a one-time password of this
+- Open `VladyslavPereverzyev.exe`. The window shows the ID and a one-time password of this
   computer: give them to the person who helps you. One click on the ID or the password copies
   it.
 - To reach a computer when nobody sits in front of it, install the app on it (the Install button
@@ -57,7 +57,7 @@ of this repository:
    main window stays, with a link to what changed, for those who chose later.
 
 3. Nothing is downloaded or installed until the user presses Update: there is no automatic
-   update. The app then downloads the new `vladpereverzyev.exe` with a progress bar, installs
+   update. The app then downloads the new `VladyslavPereverzyev.exe` with a progress bar, installs
    it over the old one once no session is open and starts again. Windows may ask for
    permission, as for the first installation.
 4. When the app only runs from the downloaded exe, without being installed, the button is
@@ -153,14 +153,14 @@ workflow on the servers of GitHub, so anybody can see how each download was made
 The exe has no code signing certificate yet. The first time Windows SmartScreen shows a blue
 warning "Windows protected your PC": click "More info", then "Run anyway". Some antivirus
 programs of companies block unsigned programs: in that case ask your IT to allow
-`vladpereverzyev.exe`.
+`VladyslavPereverzyev.exe`.
 
 To make sure the file is the one built here, compare its SHA-256 with the one GitHub shows next
 to the file on the [release page](https://github.com/vladpereverzyev/rustdesk/releases/latest).
 On Windows, open PowerShell in the folder of the download and run:
 
 ```powershell
-Get-FileHash .\vladpereverzyev.exe -Algorithm SHA256
+Get-FileHash .\VladyslavPereverzyev.exe -Algorithm SHA256
 ```
 
 ## Warranty and liability

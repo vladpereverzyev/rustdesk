@@ -16,7 +16,7 @@ use hbb_common::{bail, get_version_number, ResultType};
 use serde_json::Value;
 
 const REPO: &str = "vladpereverzyev/rustdesk";
-const ASSET: &str = "vladpereverzyev.exe";
+const ASSET: &str = "VladyslavPereverzyev.exe";
 const USER_AGENT: &str = "vladpereverzyev";
 
 // The number of the tag the build was made from (1.0.0 for v1.0.0), set by the workflow. Builds
