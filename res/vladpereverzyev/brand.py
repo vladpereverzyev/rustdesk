@@ -1750,7 +1750,9 @@ CM_HEADER_BUILD = """  Widget build(BuildContext context) {
     if (client.type_() == ClientType.camera) kind = translate("View camera");
     if (client.portForward.isNotEmpty) kind = "Port Forward: ${client.portForward}";
     final hover = false.obs;
-    final chat = InkWell(
+    final chat = Tooltip(
+      message: translate(client.type_() == ClientType.file ? 'Transfer file' : 'Chat'),
+      child: InkWell(
       onTap: () => checkClickTime(client.id, () {
         if (client.type_() == ClientType.file) {
           gFFI.chatModel.toggleCMFilePage();
@@ -1768,7 +1770,7 @@ CM_HEADER_BUILD = """  Widget build(BuildContext context) {
                 ? Theme.of(context).textTheme.titleLarge?.color
                 : const Color(0xFF@ICON@),
           )),
-    );
+    ));
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
