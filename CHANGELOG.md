@@ -5,7 +5,7 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
-## Unreleased
+## 1.0.0 (2026-11-19)
 
 - First build for Windows x64, based on RustDesk 1.5.3, with my name, the VP icon and my
   signature in the app. The exe is `vladpereverzyev.exe`.
