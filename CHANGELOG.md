@@ -9,7 +9,7 @@ changes to the remote desktop itself are in the
 
 - The home window no longer shows the Quit button: the window closes from the title bar.
 - The Unlock Settings button in the Security and Network pages lines up with the cards below it.
-- The Install printer button fits inside its card instead of running off the right edge, with a shorter label.
+- The Install printer button fits inside its card instead of running off the right edge, and the printer button and messages drop the app name from their text.
 
 ## 1.0.3 (2026-11-19)
 

@@ -1300,6 +1300,16 @@ def narrow_settings():
     replace_once("src/lang/it.rs",
                  '        ("Install {} Printer", "Installa la stampante {}"),',
                  '        ("Install {} Printer", "Installa stampante"),')
+    # The printer messages drop the app name too, to match the button.
+    replace_once("src/lang/it.rs",
+                 '        ("printer-{}-not-installed-tip", "La stampante {} non è installata."),',
+                 '        ("printer-{}-not-installed-tip", "La stampante non è installata."),')
+    replace_once("src/lang/it.rs",
+                 '        ("printer-{}-ready-tip", "La stampante {} è installata e pronta all\'uso."),',
+                 '        ("printer-{}-ready-tip", "La stampante è installata e pronta all\'uso."),')
+    replace_once("src/lang/it.rs",
+                 '        ("printer-requires-installed-{}-client-tip", "Per usare la stampa remota, {} è necessario installare il programma nel dispositivo."),',
+                 '        ("printer-requires-installed-{}-client-tip", "Per usare la stampa remota è necessario installare il programma nel dispositivo."),')
 
 
 def title_buttons():
