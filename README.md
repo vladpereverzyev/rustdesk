@@ -30,6 +30,7 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 
 ## How to use it
 
+![The window with the ID, the one-time password and the online status](docs/images/main-window.png)
 
 - Open `vladpereverzyev.exe`. The window shows the ID and a one-time password of this
   computer: give them to the person who helps you. One click on the ID or the password copies
@@ -40,6 +41,7 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
+![The list of the settings pages and the Security page](docs/images/settings.png)
 
 Allow a connection only to people you know. Somebody who has the ID and the password can see the
 screen, use the mouse and open the files of that computer.
@@ -53,7 +55,6 @@ of this repository:
    own.
 2. When a newer release is out, a window asks whether to update now or later. A card in the
    main window stays, with a link to what changed, for those who chose later.
-
 
 3. Nothing is downloaded or installed until the user presses Update: there is no automatic
    update. The app then downloads the new `vladpereverzyev.exe` with a progress bar, installs
@@ -116,6 +117,7 @@ This section explains how the app works. It is not legal advice.
 The About page of the app says the same in short, with the version and the links to the source
 code and the licence.
 
+![The About page](docs/images/about.png)
 
 ## What is in it
 

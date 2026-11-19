@@ -17,6 +17,7 @@ cert.pfx
 *png
 *svg
 *jpg
+!docs/images/*.png
 sciter.dll
 **pdb
 src/bridge_generated.rs
