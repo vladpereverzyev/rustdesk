@@ -1295,6 +1295,11 @@ def narrow_settings():
         "    Expanded(child: child),\n"
         "  ]).marginOnly(left: _kContentHMargin, right: _kContentHMargin);",
     )
+    # The printer the app installs is its own virtual printer; the button label drops the app
+    # name and reads just "Installa stampante".
+    replace_once("src/lang/it.rs",
+                 '        ("Install {} Printer", "Installa la stampante {}"),',
+                 '        ("Install {} Printer", "Installa stampante"),')
 
 
 def title_buttons():
