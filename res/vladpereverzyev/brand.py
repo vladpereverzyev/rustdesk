@@ -530,6 +530,22 @@ def polish():
     # Install window: the name in the title bar, text 13, pill buttons, the info box in the
     # panel colours.
     install = "flutter/lib/desktop/pages/install_page.dart"
+    # The install window has a close button in its title bar, so the Cancel button in the
+    # button row is redundant.
+    replace_once(
+        install,
+        "                  Obx(\n"
+        "                    () => OutlinedButton.icon(\n"
+        "                      icon: Icon(Icons.close_rounded, size: 16),\n"
+        "                      label: Text(translate('Cancel')),\n"
+        "                      onPressed: cancelEnabled.value\n"
+        "                          ? () => windowManager.close()\n"
+        "                          : null,\n"
+        "                      style: buttonStyle,\n"
+        "                    ).marginOnly(right: 10),\n"
+        "                  ),\n",
+        "",
+    )
     replace_once(
         install,
         "            backgroundColor: Theme.of(context).colorScheme.background,\n"
@@ -873,7 +889,7 @@ def updates():
     replace_once(home, "        Divider(),\n        OnlineStatusWidget(",
                  "        Divider(height: 1, thickness: 1),\n"
                  f"        Container(\n          decoration: {band},\n"
-                 "          padding: EdgeInsets.only(left: 7, top: 8, bottom: 14, right: 20),\n"
+                 "          padding: EdgeInsets.only(left: 7, top: 11, bottom: 11, right: 20),\n"
                  "          child: OnlineStatusWidget(")
     replace_once(home, "        ).marginOnly(bottom: 6, right: 6)\n      ]);",
                  "        ),\n        ),\n      ]);")
@@ -1309,6 +1325,18 @@ def shortcut_names():
     desktop = ('    if exist \\"%PUBLIC%\\\\Desktop\\\\{app_name}.lnk\\" '
                'del /f /q \\"%PUBLIC%\\\\Desktop\\\\{app_name}.lnk\\"\n')
     replace_once(win, desktop, desktop + desktop.replace("{app_name}", DISPLAY_NAME))
+    # The author in the Windows "Installed apps" list is the display name, not the technical
+    # app name used for the exe, the service and the install folder.
+    replace_once(
+        win,
+        'reg add {subkey} /f /v Publisher /t REG_SZ /d \\"{app_name}\\"',
+        f'reg add {{subkey}} /f /v Publisher /t REG_SZ /d \\"{DISPLAY_NAME}\\"',
+    )
+    replace_once(
+        win,
+        'reg add {subkey} /f /v DisplayName /t REG_SZ /d \\"{app_name}\\"',
+        f'reg add {{subkey}} /f /v DisplayName /t REG_SZ /d \\"{DISPLAY_NAME}\\"',
+    )
 
 
 def copy_on_click():
