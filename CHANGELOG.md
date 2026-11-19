@@ -11,7 +11,9 @@ changes to the remote desktop itself are in the
   icon and name in the title bar, the logo, a title, the ID and the permissions on the azure
   line, grey icons, round buttons and the status line at the bottom. It shows the ID of the
   other side instead of its account name or e-mail address.
-- The update window shows Later and Download as two buttons of the same size side by side.
+- The update window says only that a new version is available, without the name of the app,
+  and shows Later and Download as two buttons of the same size side by side. The home window
+  no longer repeats the update in a card at the bottom.
 - About: a line says that the app comes as it is, without warranty, and points to the README
   and the licence for the details. It is translated into every language of the app.
 - The app is always dark: the Theme card is gone from the General page and a light or system

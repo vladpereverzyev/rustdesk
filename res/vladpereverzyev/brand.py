@@ -1066,7 +1066,7 @@ def updates():
         "        mainAxisSize: MainAxisSize.min,\n"
         "        crossAxisAlignment: CrossAxisAlignment.start,\n"
         "        children: [\n"
-        "          Text('${translate(\"new-version-of-{$appName}-tip\")} ($version).'),\n"
+        "          Text('${translate(\"A new version is available\")} $version.'),\n"
         "          const SizedBox(height: 22),\n"
         # Two pills of the same size side by side: as dialog actions the narrow window stacked them.
         "          Row(children: [\n"
@@ -1404,7 +1404,16 @@ ABOUT_TEXTS = [
      "L'app è software libero e viene fornita così com'è, senza alcuna garanzia. Nei limiti "
      "consentiti dalla legge, Vladyslav Pereverzyev non risponde dei danni che derivano dal suo uso. "
      "I dettagli sono nel README e nella licenza."),
+    # Not on the About page: the text of the update window, without the name of the app.
+    ("A new version is available", "È disponibile una nuova versione"),
 ]
+
+
+def no_update_card():
+    # The update window opens at every start, so the home window shows no update card as well.
+    replace_once("flutter/lib/desktop/pages/desktop_home_page.dart",
+                 "if (updateUrl.isNotEmpty && !isCardClosed) {",
+                 "if (updateUrl.isNotEmpty && !isCardClosed && !bind.isIncomingOnly()) {")
 
 
 def about_page():
@@ -2059,6 +2068,7 @@ def main():
     fixed_size_window()
     shortcut_names()
     connection_window()
+    no_update_card()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
