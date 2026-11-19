@@ -10,6 +10,8 @@ changes to the remote desktop itself are in the
 - Settings: the Stop button of the Service card and the Change ID button sit on the same line
   as the card title, at the right.
 - About: the links start at the left edge of the card text, like every other text.
+- The window keeps its size: no maximize button, and neither a double click on the title bar
+  nor Win+Up or snapping to the screen edge enlarges it.
 
 ## 1.0.0 (2026-11-19)
 

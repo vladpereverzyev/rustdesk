@@ -1228,6 +1228,23 @@ def title_buttons():
     )
 
 
+def fixed_size_window():
+    # The small window always keeps its size: Windows gets no maximize box (so neither Win+Up nor
+    # snapping to the screen edge enlarges it), the title bar shows no maximize button and a
+    # double click on the title bar does nothing, on the home and on the settings pages alike.
+    replace_once(
+        "flutter/lib/main.dart",
+        "    setResizable(!bind.isIncomingOnly());\n",
+        "    setResizable(!bind.isIncomingOnly());\n"
+        "    if (bind.isIncomingOnly()) windowManager.setMaximizable(false);\n",
+    )
+    tabbar = "flutter/lib/desktop/widgets/tabbar_widget.dart"
+    replace_once(tabbar, "    final isIncomingHomePage = bind.isIncomingOnly() && isInHomePage();",
+                 "    final isIncomingHomePage = bind.isIncomingOnly();")
+    replace_once(tabbar, "              if (widget.showMaximize && !isMacOS)",
+                 "              if (widget.showMaximize && !isMacOS && !bind.isIncomingOnly())")
+
+
 def copy_on_click():
     # One click on the ID or the password copies it. The text field would take the click for
     # itself, so it ignores the pointer and the area around it takes the click.
@@ -1563,6 +1580,7 @@ def main():
     about_page()
     narrow_settings()
     title_buttons()
+    fixed_size_window()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
