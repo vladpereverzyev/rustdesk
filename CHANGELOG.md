@@ -5,6 +5,10 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.4 (2026-11-19)
+
+- The home window no longer shows the Quit button: the window closes from the title bar.
+
 ## 1.0.3 (2026-11-19)
 
 - The online status line stays centred in its band at the bottom of the window.

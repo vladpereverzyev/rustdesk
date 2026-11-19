@@ -1964,6 +1964,32 @@ def connection_window():
         f"                          borderSide: const BorderSide(color: Color(0xFF{AZURE})),\n                        ),\n",
     )
 
+def remove_quit_button():
+    # The incoming-only home shows a Quit button at the bottom right. The window closes from
+    # the title bar, so the button is redundant.
+    replace_once(
+        "flutter/lib/desktop/pages/desktop_home_page.dart",
+        "    if (bind.isIncomingOnly()) {\n"
+        "      final quitButtonText =\n"
+        "          bind.mainGetBuildinOption(key: kOptionQuitButtonText).trim();\n"
+        "      return Align(\n"
+        "        alignment: Alignment.centerRight,\n"
+        "        child: OutlinedButton(\n"
+        "          onPressed: () {\n"
+        "            SystemNavigator.pop(); // Close the application\n"
+        "            // https://github.com/flutter/flutter/issues/66631\n"
+        "            if (isWindows) {\n"
+        "              exit(0);\n"
+        "            }\n"
+        "          },\n"
+        "          child: Text(quitButtonText.isEmpty ? translate('Quit') : quitButtonText),\n"
+        "        ),\n"
+        "      ).marginAll(14);\n"
+        "    }\n",
+        "",
+    )
+
+
 def main():
     replace_once(
         "libs/hbb_common/src/config.rs",
@@ -2097,6 +2123,7 @@ def main():
     shortcut_names()
     connection_window()
     no_update_card()
+    remove_quit_button()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
