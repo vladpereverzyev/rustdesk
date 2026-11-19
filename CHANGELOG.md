@@ -5,6 +5,12 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.1 (2026-11-19)
+
+- Settings: the Stop button of the Service card and the Change ID button sit on the same line
+  as the card title, at the right.
+- About: the links start at the left edge of the card text, like every other text.
+
 ## 1.0.0 (2026-11-19)
 
 - First build for Windows x64, based on RustDesk 1.5.3, with my name, the VP icon and my

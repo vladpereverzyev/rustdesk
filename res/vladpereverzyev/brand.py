@@ -1197,6 +1197,37 @@ def narrow_settings():
                  "const Divider(height: 1, indent: 15, endIndent: 0);")
 
 
+def title_buttons():
+    # The Stop button of the Service card and the Change ID button sit at the right of their card
+    # title, on the same line, with the inset of the card text. A card with no rows below its
+    # title keeps the same space above and below the title.
+    settings = "flutter/lib/desktop/pages/desktop_setting_page.dart"
+    replace_once(
+        settings,
+        "      return _Card(title: 'Service', children: [\n        _Button(serviceStop.value ? 'Start' : 'Stop', () {",
+        "      return _Card(title: 'Service', children: [], title_suffix: [\n"
+        "        _TitleButton(serviceStop.value ? 'Start' : 'Stop', () {",
+    )
+    replace_once(settings, "_Card(title: 'ID', children: [changeId()]),",
+                 "_Card(title: 'ID', children: [], title_suffix: [changeId()]),")
+    replace_once(settings, "          return _Button('Change ID', changeIdDialog,",
+                 "          return _TitleButton('Change ID', changeIdDialog,")
+    replace_once(settings, "            ).marginOnly(bottom: 10),\n          ).marginOnly(left: 16, right: 16, top: 15),",
+                 "            ).marginOnly(bottom: children.isEmpty ? 0 : 10),\n"
+                 "          ).marginOnly(left: 16, right: 16, top: 15),")
+    replace_once(
+        settings,
+        "// ignore: non_constant_identifier_names\nWidget _SubButton(",
+        "// ignore: non_constant_identifier_names\n"
+        "Widget _TitleButton(String label, Function() onPressed, {bool enabled = true}) {\n"
+        "  return ElevatedButton(\n"
+        "    onPressed: enabled ? onPressed : null,\n"
+        "    child: Text(\n      translate(label),\n    ).marginSymmetric(horizontal: 15),\n"
+        "  ).marginOnly(right: _kContentHMargin);\n}\n\n"
+        "// ignore: non_constant_identifier_names\nWidget _SubButton(",
+    )
+
+
 def copy_on_click():
     # One click on the ID or the password copies it. The text field would take the click for
     # itself, so it ignores the pointer and the area around it takes the click.
@@ -1325,9 +1356,12 @@ def about_page():
           child: Text(text, style: linkStyle).marginSymmetric(vertical: 4.0));
       Widget section(String title, List<Widget> children) =>
           _Card(title: title, children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: children,
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: children,
+              ),
             ).marginOnly(left: _kContentHMargin, bottom: 10)
           ]);
       final scrollController = ScrollController();
@@ -1528,6 +1562,7 @@ def main():
     copy_on_click()
     about_page()
     narrow_settings()
+    title_buttons()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
