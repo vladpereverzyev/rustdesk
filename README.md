@@ -30,7 +30,7 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 
 ## How to use it
 
-![The window with the ID, the one-time password and the online status](docs/images/main-window.png)
+![The main window with the ID and the one-time password, the list of the settings pages and the General page](docs/images/main-window.png)
 
 - Open `vladpereverzyev.exe`. The window shows the ID and a one-time password of this
   computer: give them to the person who helps you. One click on the ID or the password copies
@@ -41,7 +41,7 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
-![The list of the settings pages and the Security page](docs/images/settings.png)
+![The Security page: permissions, password, two-factor authentication and ID](docs/images/security.png)
 
 Allow a connection only to people you know. Somebody who has the ID and the password can see the
 screen, use the mouse and open the files of that computer.
@@ -117,7 +117,7 @@ This section explains how the app works. It is not legal advice.
 The About page of the app says the same in short, with the version and the links to the source
 code and the licence.
 
-![The About page](docs/images/about.png)
+![The About page: how to use it, updates, network and privacy, links and licence](docs/images/about.png)
 
 ## What is in it
 
