@@ -5,6 +5,13 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.3 (2026-11-19)
+
+- The online status line stays centred in its band at the bottom of the window.
+- The install window drops the Cancel button: the title bar already has a button to close it.
+- Windows shows the app in Installed apps as "Vladyslav Pereverzyev", both the name and the author, instead of the technical "vladpereverzyev".
+- The downloaded exe is "VladyslavPereverzyev.exe". The name inside the app, the service and the install folder stays "vladpereverzyev".
+
 ## 1.0.2 (2026-11-19)
 
 - The window that asks to let a session in is built like the home window: same size, the app
