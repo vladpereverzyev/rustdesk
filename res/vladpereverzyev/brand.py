@@ -1310,6 +1310,16 @@ def narrow_settings():
     replace_once("src/lang/it.rs",
                  '        ("printer-requires-installed-{}-client-tip", "Per usare la stampa remota, {} è necessario installare il programma nel dispositivo."),',
                  '        ("printer-requires-installed-{}-client-tip", "Per usare la stampa remota è necessario installare il programma nel dispositivo."),')
+    # The update dialogs say "programma" instead of the app name.
+    replace_once("src/lang/it.rs",
+                 '        ("Downloading {}", "Download {}"),',
+                 '        ("Downloading {}", "Download programma"),')
+    replace_once("src/lang/it.rs",
+                 '        ("{} Update", "Aggiorna {}"),',
+                 '        ("{} Update", "Aggiorna programma"),')
+    replace_once("src/lang/it.rs",
+                 '        ("{}-to-update-tip", "{} si chiuderà e installerà la nuova versione"),',
+                 '        ("{}-to-update-tip", "Il programma si chiuderà e installerà la nuova versione"),')
 
 
 def title_buttons():
