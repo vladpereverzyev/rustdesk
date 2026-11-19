@@ -1,182 +1,185 @@
-<p align="center">
-  <img src="res/logo-header.svg" alt="RustDesk - Your remote desktop"><br>
-  <a href="#raw-steps-to-build">Build</a> •
-  <a href="#how-to-build-with-docker">Docker</a> •
-  <a href="#file-structure">Structure</a> •
-  <a href="#screenshots">Screenshots</a><br>
-  [<a href="docs/README-UA.md">Українська</a>] | [<a href="docs/README-CS.md">česky</a>] | [<a href="docs/README-ZH.md">中文</a>] | [<a href="docs/README-HU.md">Magyar</a>] | [<a href="docs/README-ES.md">Español</a>] | [<a href="docs/README-FA.md">فارسی</a>] | [<a href="docs/README-FR.md">Français</a>] | [<a href="docs/README-DE.md">Deutsch</a>] | [<a href="docs/README-PL.md">Polski</a>] | [<a href="docs/README-ID.md">Indonesian</a>] | [<a href="docs/README-FI.md">Suomi</a>] | [<a href="docs/README-ML.md">മലയാളം</a>] | [<a href="docs/README-JP.md">日本語</a>] | [<a href="docs/README-NL.md">Nederlands</a>] | [<a href="docs/README-IT.md">Italiano</a>] | [<a href="docs/README-RU.md">Русский</a>] | [<a href="docs/README-PTPT.md">Português (Portugal)</a>] | [<a href="docs/README-PTBR.md">Português (Brasil)</a>] | [<a href="docs/README-EO.md">Esperanto</a>] | [<a href="docs/README-KR.md">한국어</a>] | [<a href="docs/README-AR.md">العربي</a>] | [<a href="docs/README-VN.md">Tiếng Việt</a>] | [<a href="docs/README-DA.md">Dansk</a>] | [<a href="docs/README-GR.md">Ελληνικά</a>] | [<a href="docs/README-TR.md">Türkçe</a>] | [<a href="docs/README-NO.md">Norsk</a>] | [<a href="docs/README-RO.md">Română</a>] | [<a href="docs/README-KA.md">ქართული</a>]<br>
-  <b>We need your help to translate this README, <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> and <a href="https://github.com/rustdesk/doc.rustdesk.com">RustDesk Doc</a> to your native language</b>
-</p>
+# Vladyslav Pereverzyev
 
-> [!Caution]
-> **Misuse Disclaimer:** <br>
-> The developers of RustDesk do not condone or support any unethical or illegal use of this software. Misuse, such as unauthorized access, control or invasion of privacy, is strictly against our guidelines. The authors are not responsible for any misuse of the application.
+[![Build & Release](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml/badge.svg)](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml)
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](LICENCE)
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/vladpereverzyev/rustdesk/blob/vladpereverzyev/README.md)
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)
+Remote desktop for the labs and clinics that work with Vladyslav Pereverzyev, based on RustDesk.
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Advanced%20Features-blue)](https://rustdesk.com/pricing.html)
+The app is RustDesk with my name, the VP logo and the dark look of
+[vladpereverzyev.com](https://vladpereverzyev.com). A lab or a clinic runs it when a case needs
+help, so that I can reach their computer. It works on the same network as RustDesk, so I can
+reach it from the original RustDesk too.
 
-Yet another remote desktop solution, written in Rust. Works out of the box with no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).
+> [!CAUTION]
+> Use the app only to reach a computer whose owner has agreed to it. Reaching a computer
+> without permission, watching someone without their knowledge or taking their data is not
+> allowed and is against the law in most countries. I am not responsible for any misuse of the
+> app.
 
-![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
+## Install
 
-RustDesk welcomes contribution from everyone. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for help getting started.
+| Where | How |
+| --- | --- |
+| Windows 10 and 11, 64 bit | `vladpereverzyev.exe` from the [latest release](https://github.com/vladpereverzyev/rustdesk/releases/latest) |
 
-[**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)
+Until the first release, the exe of each build is attached to its run in
+[Actions](https://github.com/vladpereverzyev/rustdesk/actions/workflows/build.yml).
 
-[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
+## How to use it
 
-[**NIGHTLY BUILD**](https://github.com/rustdesk/rustdesk/releases/tag/nightly)
+- Open `vladpereverzyev.exe`. The window shows the ID and a one-time password of this
+  computer: give them to the person who helps you.
+- To reach a computer when nobody sits in front of it, install the app on it (the Install button
+  at the bottom) and set a permanent password with the pencil next to the password.
 
-[<img src="https://f-droid.org/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
-[<img src="https://flathub.org/api/badge?svg&locale=en"
-    alt="Get it on Flathub"
-    height="80">](https://flathub.org/apps/com.rustdesk.RustDesk)
+Allow a connection only to people you know. Somebody who has the ID and the password can see the
+screen, use the mouse and open the files of that computer.
 
-## Dependencies
+## Updates
 
-Desktop versions use Flutter or Sciter (deprecated) for GUI. This tutorial is for Sciter only, since it is easier and more friendly to start. Check out our [CI](https://github.com/rustdesk/rustdesk/blob/master/.github/workflows/flutter-build.yml) for building the Flutter version.
+The app updates itself from the [releases](https://github.com/vladpereverzyev/rustdesk/releases)
+of this repository:
 
-Please download Sciter dynamic library yourself.
+1. When it starts, the app asks GitHub for the latest release and compares its number with its
+   own.
+2. When a newer release is out, a window asks whether to update now or later. A card at the
+   bottom of the left panel stays, with a link to what changed, for those who chose later.
+3. Nothing is downloaded or installed until the user presses Update: there is no automatic
+   update. The app then downloads the new `vladpereverzyev.exe` with a progress bar, installs
+   it over the old one once no session is open and starts again. Windows may ask for
+   permission, as for the first installation.
+4. When the app only runs from the downloaded exe, without being installed, the button is
+   Download instead, which opens the release page.
 
-[Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) |
-[Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) |
-[macOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)
+Before it installs anything, the app checks the downloaded file: it must come over HTTPS from a
+release of this repository and have the size and the SHA-256 checksum that GitHub shows for it.
+If either does not match, the file is deleted and nothing is installed.
 
-## Raw Steps to build
+The app never updates to RustDesk or from the RustDesk servers. The updater of RustDesk only
+accepts files signed with the RustDesk key, so the app uses its own source and keeps the rest of
+the RustDesk updater: the download and the installation. The check can be turned off
+in Settings, General, "Check for software update on startup". Builds that do not come from a
+release tag never offer an update.
 
-- Prepare your Rust development env and C++ build env
+## Works with RustDesk
 
-- Install [vcpkg](https://github.com/microsoft/vcpkg), and set `VCPKG_ROOT` env variable correctly
+The app and RustDesk use the same network, so the app works with every RustDesk app:
 
-  - Windows: vcpkg install libvpx:x64-windows-static libyuv:x64-windows-static opus:x64-windows-static aom:x64-windows-static
-  - Linux/macOS: vcpkg install libvpx libyuv opus aom
+| The other side runs | It can reach this app |
+| --- | --- |
+| RustDesk for Windows, macOS or Linux | yes |
+| RustDesk for Android | yes |
+| RustDesk for iPhone and iPad | yes |
+| RustDesk in the browser ([web client](https://rustdesk.com/web/)) | yes |
 
-- run `cargo run`
+The app only lets its computer be reached: it has no field to type the ID of another computer
+and cannot take control of one. To help somebody, I use the RustDesk app.
 
-## [Build](https://rustdesk.com/docs/en/dev/build/)
+A customer who already has RustDesk does not need to install anything else. I can also help a
+customer from my phone with the RustDesk app.
 
-## How to Build on Linux
+Each program has its own ID. A computer with both RustDesk and this app installed has two IDs,
+one for each program.
 
-### Ubuntu 18 (Debian 10)
+## Privacy
 
-```sh
-sudo apt install -y zip g++ gcc git curl wget nasm yasm libgtk-3-dev clang libxcb-randr0-dev libxdo-dev \
-        libxfixes-dev libxcb-shape0-dev libxcb-xfixes0-dev libasound2-dev libpulse-dev cmake make \
-        libclang-dev ninja-build libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+The app does not collect anything for me: there is no account, no tracking and no server of mine
+in between. To find each other, the two computers use the public servers run by RustDesk, which
+see the ID and the IP address of each computer. When the two computers cannot talk directly, the
+session also passes through a RustDesk relay server. The screen, the keyboard, the clipboard and
+the files of a session are encrypted end to end, so these servers cannot read them.
+
+To look for updates, the app asks GitHub for the latest release when it starts, so GitHub sees
+the IP address of the computer, as when you open a page of the site.
+
+The computers of dental labs and clinics often hold patient data, which the GDPR treats as
+health data. Before you let somebody in:
+
+- Allow a session only when you need help and stay in front of the computer while it runs.
+- Close the programs and the folders with patient data that the helper does not need to see.
+- A business that reaches the computers of its customers, as I do, usually needs a written data
+  processing agreement with each of them (Article 28 GDPR). Ask your privacy consultant.
+
+This section explains how the app works. It is not legal advice.
+
+## What is in it
+
+This branch keeps the RustDesk code as it is. My changes live in a few places:
+
+- `res/vladpereverzyev/brand.py` patches the RustDesk code at build time: the name, the Windows
+  file details, the dark theme in the colours of vladpereverzyev.com with the Jost font and the
+  icons and logos made from the images in `res/vladpereverzyev/`.
+- `res/vladpereverzyev/update.rs` is the source of the updates (see [Updates](#updates)). The
+  script copies it into the code and points the RustDesk updater to it.
+- `.github/workflows/build.yml` builds the Windows x64 exe on every push to this branch and
+  publishes a release for every `v*` tag.
+
+The technical name of the app is `vladpereverzyev`: Windows uses it for the exe, the service,
+the install folder and the shortcuts, because RustDesk allows only letters there. Everything
+people read, from the window title to the list of installed apps, says Vladyslav Pereverzyev.
+
+The `master` branch follows [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk). New
+RustDesk versions are merged from `master` into `vladpereverzyev`.
+
+The build leaves out the usbmmidd virtual display driver that RustDesk ships, because it is a
+third-party binary without a clear license to pass it on. Without it the app cannot add a
+virtual screen to a computer that has no monitor.
+
+To build it yourself, follow the [RustDesk build guide](https://rustdesk.com/docs/en/dev/build/)
+and run `python res/vladpereverzyev/brand.py` before the build (it needs `pip install pillow`).
+
+## Code signing
+
+The exe is built from this branch by the [Build & Release](.github/workflows/build.yml)
+workflow on the servers of GitHub, so anybody can see how each download was made.
+
+The exe has no code signing certificate yet. The first time Windows SmartScreen shows a blue
+warning "Windows protected your PC": click "More info", then "Run anyway". Some antivirus
+programs of companies block unsigned programs: in that case ask your IT to allow
+`vladpereverzyev.exe`.
+
+To make sure the file is the one built here, compare its SHA-256 with the one GitHub shows next
+to the file on the [release page](https://github.com/vladpereverzyev/rustdesk/releases/latest).
+On Windows, open PowerShell in the folder of the download and run:
+
+```powershell
+Get-FileHash .\vladpereverzyev.exe -Algorithm SHA256
 ```
 
-### openSUSE Tumbleweed
+## Contributing
 
-```sh
-sudo zypper install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libXfixes-devel cmake alsa-lib-devel gstreamer-devel gstreamer-plugins-base-devel xdotool-devel
-```
+This branch only holds my name, theme, updates and build on top of RustDesk. Please read
+[CONTRIBUTING.md](CONTRIBUTING.md) and the [Code of Conduct](CODE_OF_CONDUCT.md) first. Bugs and
+ideas for the remote desktop itself belong to
+[RustDesk](https://github.com/rustdesk/rustdesk/issues). Security problems go to the
+[security policy](SECURITY.md), not to a public issue.
 
-### Fedora 28 (CentOS 8)
+## Support
 
-```sh
-sudo yum -y install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libxdo-devel libXfixes-devel pulseaudio-libs-devel cmake alsa-lib-devel gstreamer1-devel gstreamer1-plugins-base-devel
-```
+Questions about the app: see [SUPPORT.md](SUPPORT.md) or write to info@vladpereverzyev.com.
 
-### Arch (Manjaro)
+If you want to support the remote desktop itself, support
+[RustDesk](https://github.com/sponsors/rustdesk), the people who write it.
 
-```sh
-sudo pacman -Syu --needed unzip git cmake gcc curl wget yasm nasm zip make pkg-config clang gtk3 xdotool libxcb libxfixes alsa-lib pipewire
-```
+## License
 
-### Install vcpkg
+Copyright (C) 2026 Vladyslav Pereverzyev for the changes in this branch. RustDesk is Copyright
+(C) Purslane Tech Pte. Ltd. and the RustDesk contributors.
 
-```sh
-git clone https://github.com/microsoft/vcpkg
-cd vcpkg
-git checkout 2023.04.15
-cd ..
-vcpkg/bootstrap-vcpkg.sh
-export VCPKG_ROOT=$HOME/vcpkg
-vcpkg/vcpkg install libvpx libyuv opus aom
-```
+This app is a modified version of RustDesk, changed from November 2026 on, and is released under
+the [GNU Affero General Public License v3.0](LICENCE). You can use, study, modify and share it for
+free. If you distribute a modified version or offer it to users over a network you must publish
+your source code under the same license. The source code of every build is this branch. Each
+release on GitHub also comes with the source code of the tag it was built from.
 
-### Fix libvpx (For Fedora)
+The name "Vladyslav Pereverzyev", the VP logo and the Vladyslav Pereverzyev signature in
+`res/vladpereverzyev/` are not covered by the AGPL-3.0 and may not be used for modified versions
+without permission.
 
-```sh
-cd vcpkg/buildtrees/libvpx/src
-cd *
-./configure
-sed -i 's/CFLAGS+=-I/CFLAGS+=-fPIC -I/g' Makefile
-sed -i 's/CXXFLAGS+=-I/CXXFLAGS+=-fPIC -I/g' Makefile
-make
-cp libvpx.a $HOME/vcpkg/installed/x64-linux/lib/
-cd
-```
+RustDesk is a trademark of its owners. This app is not affiliated with or endorsed by the
+RustDesk project. Other product names and trademarks belong to their owners.
 
-### Build
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-git clone --recurse-submodules https://github.com/rustdesk/rustdesk
-cd rustdesk
-mkdir -p target/debug
-wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
-mv libsciter-gtk.so target/debug
-VCPKG_ROOT=$HOME/vcpkg cargo run
-```
-
-## How to build with Docker
-
-Begin by cloning the repository and building the Docker container:
-
-```sh
-git clone https://github.com/rustdesk/rustdesk
-cd rustdesk
-git submodule update --init --recursive
-docker build -t "rustdesk-builder" .
-```
-
-Then, each time you need to build the application, run the following command:
-
-```sh
-docker run --rm -it -v $PWD:/home/user/rustdesk -v rustdesk-git-cache:/home/user/.cargo/git -v rustdesk-registry-cache:/home/user/.cargo/registry -e PUID="$(id -u)" -e PGID="$(id -g)" rustdesk-builder
-```
-
-Note that the first build may take longer before dependencies are cached, subsequent builds will be faster. Additionally, if you need to specify different arguments to the build command, you may do so at the end of the command in the `<OPTIONAL-ARGS>` position. For instance, if you wanted to build an optimized release version, you would run the command above followed by `--release`. The resulting executable will be available in the target folder on your system, and can be run with:
-
-```sh
-target/debug/rustdesk
-```
-
-Or, if you're running a release executable:
-
-```sh
-target/release/rustdesk
-```
-
-Please ensure that you run these commands from the root of the RustDesk repository, or the application may not find the required resources. Also note that other cargo subcommands such as `install` or `run` are not currently supported via this method as they would install or run the program inside the container instead of the host.
-
-## File Structure
-
-- **[libs/hbb_common](https://github.com/rustdesk/hbb_common)**: video codec, config, tcp/udp wrapper, and some other utility functions shared with the server
-- **[libs/base](https://github.com/rustdesk/rustdesk/tree/master/libs/base)**: protobuf, fs functions for file transfer, keyboard and platform code used only by this app
-- **[libs/scrap](https://github.com/rustdesk/rustdesk/tree/master/libs/scrap)**: screen capture
-- **[libs/enigo](https://github.com/rustdesk/rustdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
-- **[libs/clipboard](https://github.com/rustdesk/rustdesk/tree/master/libs/clipboard)**: file copy and paste implementation for Windows, Linux, macOS.
-- **[src/ui](https://github.com/rustdesk/rustdesk/tree/master/src/ui)**: obsolete Sciter UI (deprecated)
-- **[src/server](https://github.com/rustdesk/rustdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
-- **[src/client.rs](https://github.com/rustdesk/rustdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/rustdesk/rustdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [rustdesk-server](https://github.com/rustdesk/rustdesk-server), wait for remote direct (TCP hole punching) or relayed connection
-- **[src/platform](https://github.com/rustdesk/rustdesk/tree/master/src/platform)**: platform specific code
-- **[flutter](https://github.com/rustdesk/rustdesk/tree/master/flutter)**: Flutter code for desktop and mobile
-
-## Screenshots
-
-![Connection Manager](https://github.com/rustdesk/rustdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
-
-![Connected to a Windows PC](https://github.com/rustdesk/rustdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
-
-![File Transfer](https://github.com/rustdesk/rustdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
-
-![TCP Tunneling](https://github.com/rustdesk/rustdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)
-
+Third-party components keep their own licenses. See [NOTICE](NOTICE) and
+[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

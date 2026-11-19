@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this app in your work, please cite it as below."
+title: "Vladyslav Pereverzyev remote desktop"
+abstract: >-
+  Remote desktop for the labs and clinics that work with Vladyslav Pereverzyev.
+  A modified version of RustDesk with its own name, logo, theme and updates, for Windows.
+type: software
+authors:
+  - given-names: "Vladyslav"
+    family-names: "Pereverzyev"
+    website: "https://www.vladpereverzyev.com"
+repository-code: "https://github.com/vladpereverzyev/rustdesk"
+url: "https://github.com/vladpereverzyev/rustdesk"
+license: AGPL-3.0-only
+keywords:
+  - remote desktop
+  - remote support
+  - dental lab
+  - RustDesk
+references:
+  - type: software
+    title: "RustDesk"
+    authors:
+      - name: "Purslane Tech Pte. Ltd. and the RustDesk contributors"
+    repository-code: "https://github.com/rustdesk/rustdesk"
+    license: AGPL-3.0-only

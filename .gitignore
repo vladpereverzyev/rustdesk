@@ -60,3 +60,7 @@ flutter/web/
 /third_party/libdrmtap/
 # Local git worktrees
 .worktrees/
+
+# Logo sources of the Vladyslav Pereverzyev remote desktop
+!res/vladpereverzyev/*.png
+!docs/images/vladpereverzyev-*.png
