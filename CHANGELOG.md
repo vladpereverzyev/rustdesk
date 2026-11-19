@@ -12,6 +12,8 @@ changes to the remote desktop itself are in the
 - About: the links start at the left edge of the card text, like every other text.
 - The window keeps its size: no maximize button, and neither a double click on the title bar
   nor Win+Up or snapping to the screen edge enlarges it.
+- The install puts the shortcuts on the Desktop and in the Start menu as "Vladyslav
+  Pereverzyev" and removes the old "vladpereverzyev" one.
 
 ## 1.0.0 (2026-11-19)
 

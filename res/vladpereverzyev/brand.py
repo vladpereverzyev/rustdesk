@@ -1245,6 +1245,36 @@ def fixed_size_window():
                  "              if (widget.showMaximize && !isMacOS && !bind.isIncomingOnly())")
 
 
+def shortcut_names():
+    # The shortcuts on the Desktop and in the Start menu carry the display name, so the icon
+    # reads "Vladyslav Pereverzyev". An install over an older one removes the shortcut with the
+    # technical name; the uninstall removes both.
+    win = "src/platform/windows.rs"
+    old = APP_NAME
+    replace_once(win, '        &format!("{app_name}.lnk"),', f'        &format!("{DISPLAY_NAME}.lnk"),')
+    replace_once(win, '        &format!("Uninstall {app_name}.lnk"),',
+                 f'        &format!("Uninstall {DISPLAY_NAME}.lnk"),')
+    replace_once(
+        win,
+        '            "copy /Y \\"{}\\\\{}.lnk\\" \\"%PUBLIC%\\\\Desktop\\\\\\"",\n'
+        '            tmp_path,\n            crate::get_app_name()\n        );',
+        f'            "if exist \\"%PUBLIC%\\\\Desktop\\\\{old}.lnk\\" del /f /q \\"%PUBLIC%\\\\Desktop\\\\{old}.lnk\\"\\n'
+        'copy /Y \\"{}\\\\{}.lnk\\" \\"%PUBLIC%\\\\Desktop\\\\\\"",\n'
+        f'            tmp_path,\n            "{DISPLAY_NAME}"\n        );',
+    )
+    for line in [
+        'copy /Y \\"{tmp_path}\\\\{app_name}.lnk\\" \\"{start_menu}\\\\\\"',
+        'copy /Y \\"{tmp_path}\\\\Uninstall {app_name}.lnk\\" \\"{start_menu}\\\\\\"',
+        'if exist \\"{tmp_path}\\\\{app_name}.lnk\\" del /f /q \\"{tmp_path}\\\\{app_name}.lnk\\"',
+        'if exist \\"{tmp_path}\\\\Uninstall {app_name}.lnk\\" del /f /q \\"{tmp_path}\\\\Uninstall {app_name}.lnk\\"',
+        'copy /Y \\"{tmp_path}\\\\Uninstall {app_name}.lnk\\" \\"{path}\\\\\\"',
+    ]:
+        replace_once(win, line, line.replace("{app_name}.lnk", f"{DISPLAY_NAME}.lnk"))
+    desktop = ('    if exist \\"%PUBLIC%\\\\Desktop\\\\{app_name}.lnk\\" '
+               'del /f /q \\"%PUBLIC%\\\\Desktop\\\\{app_name}.lnk\\"\n')
+    replace_once(win, desktop, desktop + desktop.replace("{app_name}", DISPLAY_NAME))
+
+
 def copy_on_click():
     # One click on the ID or the password copies it. The text field would take the click for
     # itself, so it ignores the pointer and the area around it takes the click.
@@ -1581,6 +1611,7 @@ def main():
     narrow_settings()
     title_buttons()
     fixed_size_window()
+    shortcut_names()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
