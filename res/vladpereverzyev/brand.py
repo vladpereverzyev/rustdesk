@@ -1062,19 +1062,51 @@ def updates():
         "  gFFI.dialogManager.show((setState, close, context) {\n"
         "    return CustomAlertDialog(\n"
         "      title: Text(translate('Update')),\n"
-        "      content: Text(\n"
-        "          '${translate(\"new-version-of-{$appName}-tip\")} ($version).'),\n"
-        "      actions: [\n"
-        "        dialogButton('Later', onPressed: close, isOutline: true),\n"
-        "        dialogButton(installed ? 'Update' : 'Download', onPressed: () {\n"
-        "          close();\n"
-        "          if (installed) {\n"
-        "            handleUpdate(releasePageUrl);\n"
-        "          } else {\n"
-        "            launchUrl(Uri.parse(releasePageUrl));\n"
-        "          }\n"
-        "        }),\n"
-        "      ],\n"
+        "      content: Column(\n"
+        "        mainAxisSize: MainAxisSize.min,\n"
+        "        crossAxisAlignment: CrossAxisAlignment.start,\n"
+        "        children: [\n"
+        "          Text('${translate(\"new-version-of-{$appName}-tip\")} ($version).'),\n"
+        "          const SizedBox(height: 22),\n"
+        # Two pills of the same size side by side: as dialog actions the narrow window stacked them.
+        "          Row(children: [\n"
+        "            Expanded(\n"
+        "              child: OutlinedButton(\n"
+        "                style: OutlinedButton.styleFrom(\n"
+        "                  shape: const StadiumBorder(),\n"
+        "                  minimumSize: const Size(0, 34),\n"
+        "                  padding: EdgeInsets.zero,\n"
+        "                  foregroundColor: const Color(0xFFF1F4F6),\n"
+        "                  side: const BorderSide(color: Color(0x59FFFFFF)),\n"
+        "                  textStyle: const TextStyle(fontFamily: 'Jost', fontSize: 13, fontWeight: FontWeight.w400),\n"
+        "                ),\n"
+        "                onPressed: close,\n"
+        "                child: Text(translate('Later'), maxLines: 1),\n"
+        "              ),\n"
+        "            ),\n"
+        "            const SizedBox(width: 10),\n"
+        "            Expanded(\n"
+        "              child: ElevatedButton(\n"
+        "                style: ElevatedButton.styleFrom(\n"
+        "                  elevation: 0,\n"
+        "                  shape: const StadiumBorder(),\n"
+        "                  minimumSize: const Size(0, 34),\n"
+        "                  padding: EdgeInsets.zero,\n"
+        "                ),\n"
+        "                onPressed: () {\n"
+        "                  close();\n"
+        "                  if (installed) {\n"
+        "                    handleUpdate(releasePageUrl);\n"
+        "                  } else {\n"
+        "                    launchUrl(Uri.parse(releasePageUrl));\n"
+        "                  }\n"
+        "                },\n"
+        "                child: Text(translate(installed ? 'Update' : 'Download'), maxLines: 1),\n"
+        "              ),\n"
+        "            ),\n"
+        "          ]),\n"
+        "        ],\n"
+        "      ),\n"
         "      onCancel: close,\n"
         "    );\n"
         "  });\n"
@@ -1492,6 +1524,407 @@ def about_page():
                      lines + "    ].iter().cloned().collect();")
 
 
+CM_BUTTON = """    Widget textWidget;
+    // The pills of the home window: the main action filled azure with dark text, every other
+    // button outlined, like Install.
+    final primary = color == MyTheme.accent;
+    final fg = primary ? const Color(0xFF@BUTTON_TEXT@) : const Color(0xFFF1F4F6);
+    final label = Text(
+      translate(text),
+      style: TextStyle(
+          color: fg, fontFamily: 'Jost', fontSize: 13, fontWeight: FontWeight.w400),
+      textAlign: TextAlign.center,
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    );
+    textWidget = icon != null ? Flexible(child: label) : Expanded(child: label);
+    final borderRadius = BorderRadius.circular(18.0);
+    final btn = Container(
+      height: 36,
+      decoration: BoxDecoration(
+          color: primary ? MyTheme.accent : Colors.transparent,
+          borderRadius: borderRadius,
+          border: Border.all(
+              color: primary ? MyTheme.accent : const Color(0x59FFFFFF))),
+      child: InkWell(
+        borderRadius: borderRadius,
+        hoverColor: primary ? const Color(0x33FFFFFF) : const Color(0x1A2791CB),
+        onTap: () {
+          if (onClick == null) return;
+          checkClickTime(client.id, onClick);
+        },
+        onTapDown: (details) {
+          if (onTapDown == null) return;
+          checkClickTime(client.id, () {
+            onTapDown.call(details);
+          });
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (icon != null)
+              ColorFiltered(
+                colorFilter: ColorFilter.mode(
+                    primary ? fg : const Color(0xFF@ICON@), BlendMode.srcIn),
+                child: icon,
+              ).marginOnly(right: 6),
+            textWidget,
+          ],
+        ),
+      ),
+    );
+    return (tooltip != null
+            ? Tooltip(
+                message: translate(tooltip),
+                child: btn,
+              )
+            : btn)
+        .marginSymmetric(horizontal: 4, vertical: 5);
+  }"""
+
+CM_CARD = """Widget buildConnectionCard(Client client) {
+  // Laid out like the home window: logo, title and the boards with the azure line on the panel,
+  // then the buttons and the status line on the gradient of the install banner.
+  return Consumer<ServerModel>(
+    builder: (context, value, child) => Container(
+      key: ValueKey(client.id),
+      color: Theme.of(context).colorScheme.background,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _CmHeader(client: client),
+                  client.type_() == ClientType.file ||
+                          client.type_() == ClientType.portForward ||
+                          client.type_() == ClientType.terminal ||
+                          client.disconnected
+                      ? Offstage()
+                      : _PrivilegeBoard(client: client),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            decoration: const BoxDecoration(gradient: _kCmGradient),
+            padding: const EdgeInsets.fromLTRB(16, 9, 16, 1),
+            child: _CmControlPanel(client: client),
+          ),
+          _CmStatusLine(client: client),
+        ],
+      ),
+    ),
+  );
+}
+
+const _kCmGradient = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [Color(0xFF011E2E), Color(0xFF063049)],
+);
+
+// The board of the home window: a 2 px azure line on the left, the label in small capitals.
+Widget _cmBoard({required String label, Widget? action, required Widget child, required double height}) {
+  return Container(
+    margin: const EdgeInsets.only(left: 20, right: 20, top: 5),
+    padding: const EdgeInsets.only(left: 7),
+    height: height,
+    decoration: const BoxDecoration(
+      border: Border(left: BorderSide(color: MyTheme.accent, width: 2)),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 20,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label.toUpperCase(),
+                style: const TextStyle(fontSize: 11, letterSpacing: 2.2, color: Color(0xFF@AZURE_LIGHT@)),
+              ),
+              if (action != null) action,
+            ],
+          ),
+        ),
+        Expanded(child: child),
+      ],
+    ),
+  );
+}
+
+class _CmStatusLine extends StatefulWidget {
+  final Client client;
+
+  const _CmStatusLine({Key? key, required this.client}) : super(key: key);
+
+  @override
+  State<_CmStatusLine> createState() => _CmStatusLineState();
+}
+
+class _CmStatusLineState extends State<_CmStatusLine> {
+  int _seconds = 0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (widget.client.authorized && !widget.client.disconnected) {
+        setState(() => _seconds++);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final client = widget.client;
+    final live = client.authorized && !client.disconnected;
+    final text = client.authorized
+        ? (client.disconnected ? translate("Disconnected") : translate("Connected"))
+        : "${translate("Request access to your device")}...";
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const Divider(height: 1, thickness: 1),
+        Container(
+          decoration: const BoxDecoration(gradient: _kCmGradient),
+          padding: const EdgeInsets.only(left: 7, top: 8, bottom: 14, right: 20),
+          child: SizedBox(
+            height: 24,
+            child: Row(
+              children: [
+                Container(
+                  height: 8,
+                  width: 8,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                    color: live
+                        ? const Color.fromARGB(255, 50, 190, 166)
+                        : (client.disconnected ? kColorWarn : MyTheme.accent),
+                  ),
+                ).marginSymmetric(horizontal: 13),
+                Flexible(
+                  child: Text(text,
+                      style: const TextStyle(fontSize: 13),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis),
+                ),
+                if (live)
+                  Text(
+                    formatDurationToTime(Duration(seconds: _seconds)),
+                    style: const TextStyle(fontSize: 13, color: Color(0xFF@AZURE_LIGHT@)),
+                  ).marginOnly(left: 8),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _AppIcon"""
+
+CM_HEADER_BUILD = """  Widget build(BuildContext context) {
+    super.build(context);
+    final showChat = client.authorized &&
+        (client.type_() == ClientType.remote ||
+            client.type_() == ClientType.file ||
+            client.type_() == ClientType.camera);
+    String? kind;
+    if (client.type_() == ClientType.terminal) kind = translate("Terminal");
+    if (client.type_() == ClientType.file) kind = translate("Transfer file");
+    if (client.type_() == ClientType.camera) kind = translate("View camera");
+    if (client.portForward.isNotEmpty) kind = "Port Forward: ${client.portForward}";
+    final hover = false.obs;
+    final chat = InkWell(
+      onTap: () => checkClickTime(client.id, () {
+        if (client.type_() == ClientType.file) {
+          gFFI.chatModel.toggleCMFilePage();
+        } else {
+          gFFI.chatModel.toggleCMChatPage(MessageKey(client.peerId, client.id));
+        }
+      }),
+      onHover: (value) => hover.value = value,
+      child: Obx(() => Icon(
+            client.type_() == ClientType.file
+                ? Icons.drive_file_move_rounded
+                : Icons.chat_rounded,
+            size: 20,
+            color: hover.value
+                ? Theme.of(context).textTheme.titleLarge?.color
+                : const Color(0xFF@ICON@),
+          )),
+    );
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(alignment: Alignment.center, child: loadLogo()),
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0, right: 20, top: 16.0, bottom: 5),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(translate("Connection"), style: Theme.of(context).textTheme.titleLarge),
+              if (kind != null)
+                Text(kind, style: Theme.of(context).textTheme.bodySmall).marginOnly(top: 10),
+            ],
+          ),
+        ),
+        _cmBoard(
+          label: translate("ID"),
+          action: showChat ? chat : null,
+          height: 57,
+          child: Text(
+            formatID(client.peerId),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+          ).marginOnly(top: 6),
+        ),
+      ],
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;"""
+
+PRIVILEGE_HEAD_OLD = """    return Container(
+      width: double.infinity,
+      height: 160.0,
+      margin: EdgeInsets.all(5.0),
+      padding: EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).colorScheme.background,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 1.5),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text(
+            translate("Permissions"),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+            textAlign: TextAlign.center,
+          ).marginOnly(left: 4.0, bottom: 8.0),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: crossAxisCount,
+              padding: EdgeInsets.symmetric(horizontal: spacing),
+              mainAxisSpacing: spacing,
+              crossAxisSpacing: spacing,
+"""
+
+PRIVILEGE_HEAD_NEW = """    return _cmBoard(
+      label: translate("Permissions"),
+      height: 102,
+      child: Column(
+        children: [
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: crossAxisCount,
+              padding: const EdgeInsets.only(top: 6),
+              physics: const NeverScrollableScrollPhysics(),
+              mainAxisSpacing: 4,
+              crossAxisSpacing: spacing,
+              childAspectRatio: 1.6,
+"""
+
+
+def connection_window():
+    # The window that asks to let a session in and then shows it, built like the home window: the
+    # same size, the app icon and name in the title bar with no tab, the logo, a title, the boards
+    # with the azure line, grey icons, the pills and the status line on the gradient. The account
+    # name of the other side (often an e-mail address) is never shown.
+    replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeClosedChat = Size(300, 490);",
+                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 631);")
+    replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeOpenChat = Size(700, 490);",
+                 "const Size kConnectionManagerWindowSizeOpenChat = Size(714, 631);")
+    replace_once("flutter/lib/models/server_model.dart", "        label: client.name,\n",
+                 f"        label: '{DISPLAY_NAME}',\n")
+
+    server = "flutter/lib/desktop/pages/server_page.dart"
+    replace_once(server, "import 'package:flutter_hbb/consts.dart';\n",
+                 "import 'package:flutter_hbb/consts.dart';\nimport 'package:flutter_hbb/common/formatter/id_formatter.dart';\n")
+    replace_once(server, "              showTitle: false,\n              showMaximize: false,",
+                 "              showTitle: true,\n              showMaximize: false,")
+    replace_once(server, "              selectedBorderColor: MyTheme.accent,\n              maxLabelWidth: 100,",
+                 "              selectedBorderColor: Colors.transparent,\n"
+                 "              selectedTabBackgroundColor: Colors.transparent,\n"
+                 "              unSelectedTabBackgroundColor: Colors.transparent,\n"
+                 "              maxLabelWidth: 100,")
+    # The title bar shows only the app icon and name, as on the home window: the tabs draw nothing.
+    replace_once(server, "              tabBuilder: (key, icon, label, themeConf) {\n",
+                 "              tabBuilder: (key, icon, label, themeConf) {\n"
+                 "                if (key.isNotEmpty) return const SizedBox.shrink();\n")
+    sub_once(server, r"Widget buildConnectionCard\(Client client\) \{.*?\n\}\n\nclass _AppIcon",
+             lambda _: CM_CARD.replace("@AZURE_LIGHT@", AZURE_LIGHT))
+    sub_once(server, r"  Widget build\(BuildContext context\) \{\n    super\.build\(context\);\n    return Container\(\n"
+             r".*?  @override\n  bool get wantKeepAlive => true;",
+             lambda _: CM_HEADER_BUILD.replace("@ICON@", ICON))
+    replace_once(server, PRIVILEGE_HEAD_OLD, PRIVILEGE_HEAD_NEW)
+    replace_once(server, "    final spacing = 10.0;\n", "    final spacing = 14.0;\n")
+    replace_once(
+        server,
+        "        decoration: BoxDecoration(\n          color: enabled\n"
+        "              ? (canModify ? MyTheme.accent : MyTheme.accent.withOpacity(0.6))\n"
+        "              : Colors.grey[700],\n          borderRadius: BorderRadius.circular(10.0),\n        ),\n"
+        "        padding: EdgeInsets.all(8.0),\n",
+        "",
+    )
+    replace_once(server, "                child: Icon(\n                  iconData,\n                  color: Colors.white,\n                ),",
+                 "                child: Icon(\n                  iconData,\n"
+                 "                  color: enabled ? const Color(0xFFD0D0D0) : const Color(0x667D90A0),\n"
+                 "                  size: 20,\n                ),")
+    sub_once(server, r"    Widget textWidget;\n    if \(icon != null\) \{.*?        \.marginAll\(4\);\n  \}",
+             lambda _: CM_BUTTON.replace("@BUTTON_TEXT@", BUTTON_TEXT).replace("@ICON@", ICON))
+    # A single action is a pill of the width of Install, centred, as on the home window.
+    replace_once(server, "        Row(\n          children: [\n            Expanded(\n              child: buildButton(context,\n"
+                         "                  color: Colors.redAccent,",
+                 "        Row(\n          mainAxisAlignment: MainAxisAlignment.center,\n          children: [\n"
+                 "            SizedBox(\n              width: 158,\n              child: buildButton(context,\n"
+                 "                  color: Colors.redAccent,")
+    replace_once(server, "        Expanded(\n            child: buildButton(context,\n                color: MyTheme.accent,\n"
+                         "                onClick: handleClose,",
+                 "        SizedBox(\n            width: 158,\n            child: buildButton(context,\n"
+                 "                color: MyTheme.accent,\n                onClick: handleClose,")
+
+    chat = "flutter/lib/common/widgets/chat_page.dart"
+    replace_once(chat, "isOwnMessage ? MyTheme.accent : Colors.blueGrey,",
+                 "isOwnMessage ? Color(0xFF063049) : Color(0xFF04263A),")
+    replace_once(chat, "                        color: MyTheme.accent,\n                        icon: Icons.send_rounded,",
+                 f"                        color: Color(0xFF{ICON}),\n                        icon: Icons.send_rounded,")
+    replace_once(
+        chat,
+        "                        border: OutlineInputBorder(\n                          borderRadius: BorderRadius.circular(10.0),\n"
+        "                          borderSide: const BorderSide(\n                            width: 1,\n"
+        "                            style: BorderStyle.solid,\n                          ),\n                        ),\n",
+        "                        border: OutlineInputBorder(\n                          borderRadius: BorderRadius.circular(8.0),\n"
+        "                          borderSide: const BorderSide(color: Color(0x4DFFFFFF)),\n                        ),\n"
+        "                        enabledBorder: OutlineInputBorder(\n                          borderRadius: BorderRadius.circular(8.0),\n"
+        "                          borderSide: const BorderSide(color: Color(0x4DFFFFFF)),\n                        ),\n"
+        "                        focusedBorder: OutlineInputBorder(\n                          borderRadius: BorderRadius.circular(8.0),\n"
+        f"                          borderSide: const BorderSide(color: Color(0xFF{AZURE})),\n                        ),\n",
+    )
+
 def main():
     replace_once(
         "libs/hbb_common/src/config.rs",
@@ -1623,6 +2056,7 @@ def main():
     title_buttons()
     fixed_size_window()
     shortcut_names()
+    connection_window()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
