@@ -1362,6 +1362,12 @@ ABOUT_TEXTS = [
      "Vladyslav Pereverzyev da novembre 2026. È distribuito con la licenza GNU Affero General "
      "Public License versione 3. RustDesk è un marchio dei suoi titolari; questa app non è "
      "affiliata al progetto RustDesk né approvata da esso."),
+    ("The app is free software and comes as it is, without any warranty. As far as the law "
+     "allows, Vladyslav Pereverzyev is not liable for any damage that comes from its use. The "
+     "details are in the README and in the licence.",
+     "L'app è software libero e viene fornita così com'è, senza alcuna garanzia. Nei limiti "
+     "consentiti dalla legge, Vladyslav Pereverzyev non risponde dei danni che derivano dal suo uso. "
+     "I dettagli sono nel README e nella licenza."),
 ]
 
 
@@ -1436,6 +1442,7 @@ def about_page():
             line('Copyright © ${DateTime.now().toString().substring(0, 4)} Purslane Tech Pte. Ltd.'),
             if (license.isNotEmpty) line(license),
             line(@T13@),
+            line(@T14@),
           ]),
         ]),
       );

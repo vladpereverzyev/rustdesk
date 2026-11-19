@@ -14,7 +14,8 @@
   "الشيفرة المصدرية",
   "الترخيص",
   "نسخة تجريبية",
-  "سطح المكتب البعيد هذا مبني على RustDesk (github.com/rustdesk/rustdesk) ويعدّله Vladyslav Pereverzyev منذ نوفمبر 2026. يُوزَّع بموجب ترخيص GNU Affero General Public License الإصدار 3. RustDesk علامة تجارية لأصحابها؛ هذا التطبيق غير تابع لمشروع RustDesk وغير معتمد منه."
+  "سطح المكتب البعيد هذا مبني على RustDesk (github.com/rustdesk/rustdesk) ويعدّله Vladyslav Pereverzyev منذ نوفمبر 2026. يُوزَّع بموجب ترخيص GNU Affero General Public License الإصدار 3. RustDesk علامة تجارية لأصحابها؛ هذا التطبيق غير تابع لمشروع RustDesk وغير معتمد منه.",
+  "التطبيق برنامج حر ويُقدَّم كما هو، دون أي ضمان. في الحدود التي يسمح بها القانون، لا يتحمل Vladyslav Pereverzyev المسؤولية عن أي ضرر ناتج عن استخدامه. التفاصيل في ملف README وفي الترخيص."
  ],
  "az": [
   "Sonra",
@@ -31,7 +32,8 @@
   "Mənbə kodu",
   "Lisenziya",
   "Sınaq versiyası",
-  "Bu uzaq masaüstü RustDesk əsasındadır (github.com/rustdesk/rustdesk) və 2026-cı ilin noyabrından Vladyslav Pereverzyev tərəfindən dəyişdirilir. GNU Affero General Public License 3-cü versiya lisenziyası ilə yayılır. RustDesk sahiblərinin ticarət nişanıdır; bu tətbiq RustDesk layihəsi ilə əlaqəli deyil və onun tərəfindən təsdiqlənməyib."
+  "Bu uzaq masaüstü RustDesk əsasındadır (github.com/rustdesk/rustdesk) və 2026-cı ilin noyabrından Vladyslav Pereverzyev tərəfindən dəyişdirilir. GNU Affero General Public License 3-cü versiya lisenziyası ilə yayılır. RustDesk sahiblərinin ticarət nişanıdır; bu tətbiq RustDesk layihəsi ilə əlaqəli deyil və onun tərəfindən təsdiqlənməyib.",
+  "Tətbiq azad proqram təminatıdır və heç bir zəmanət olmadan olduğu kimi təqdim olunur. Qanunun icazə verdiyi həddə Vladyslav Pereverzyev onun istifadəsindən yaranan heç bir zərərə görə məsuliyyət daşımır. Təfərrüatlar README faylında və lisenziyadadır."
  ],
  "be": [
   "Пазней",
@@ -48,7 +50,8 @@
   "Зыходны код",
   "Ліцэнзія",
   "Тэставая версія",
-  "Гэты аддалены працоўны стол заснаваны на RustDesk (github.com/rustdesk/rustdesk) і змяняецца Vladyslav Pereverzyev з лістапада 2026 года. Ён распаўсюджваецца па ліцэнзіі GNU Affero General Public License версіі 3. RustDesk з'яўляецца гандлёвай маркай сваіх уладальнікаў; гэтая праграма не звязана з праектам RustDesk і не ўхвалена ім."
+  "Гэты аддалены працоўны стол заснаваны на RustDesk (github.com/rustdesk/rustdesk) і змяняецца Vladyslav Pereverzyev з лістапада 2026 года. Ён распаўсюджваецца па ліцэнзіі GNU Affero General Public License версіі 3. RustDesk з'яўляецца гандлёвай маркай сваіх уладальнікаў; гэтая праграма не звязана з праектам RustDesk і не ўхвалена ім.",
+  "Праграма з'яўляецца свабодным праграмным забеспячэннем і пастаўляецца як ёсць, без якіх-небудзь гарантый. У межах, дазволеных законам, Vladyslav Pereverzyev не нясе адказнасці за любую шкоду ад яе выкарыстання. Падрабязнасці ў README і ў ліцэнзіі."
  ],
  "bg": [
   "По-късно",
@@ -65,7 +68,8 @@
   "Изходен код",
   "Лиценз",
   "Тестова версия",
-  "Този отдалечен работен плот е базиран на RustDesk (github.com/rustdesk/rustdesk) и се променя от Vladyslav Pereverzyev от ноември 2026 г. Разпространява се под лиценза GNU Affero General Public License версия 3. RustDesk е търговска марка на своите собственици; това приложение не е свързано с проекта RustDesk и не е одобрено от него."
+  "Този отдалечен работен плот е базиран на RustDesk (github.com/rustdesk/rustdesk) и се променя от Vladyslav Pereverzyev от ноември 2026 г. Разпространява се под лиценза GNU Affero General Public License версия 3. RustDesk е търговска марка на своите собственици; това приложение не е свързано с проекта RustDesk и не е одобрено от него.",
+  "Приложението е свободен софтуер и се предоставя както е, без каквато и да е гаранция. Доколкото законът позволява, Vladyslav Pereverzyev не носи отговорност за вреди, произтичащи от използването му. Подробностите са в README и в лиценза."
  ],
  "ca": [
   "Més tard",
@@ -82,7 +86,8 @@
   "Codi font",
   "Llicència",
   "Versió de prova",
-  "Aquest escriptori remot es basa en RustDesk (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev el modifica des de novembre de 2026. Es distribueix amb la llicència GNU Affero General Public License versió 3. RustDesk és una marca dels seus titulars; aquesta app no està afiliada al projecte RustDesk ni aprovada per ell."
+  "Aquest escriptori remot es basa en RustDesk (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev el modifica des de novembre de 2026. Es distribueix amb la llicència GNU Affero General Public License versió 3. RustDesk és una marca dels seus titulars; aquesta app no està afiliada al projecte RustDesk ni aprovada per ell.",
+  "L'aplicació és programari lliure i es proporciona tal com és, sense cap garantia. En la mesura que la llei ho permeti, Vladyslav Pereverzyev no es fa responsable de cap dany derivat del seu ús. Els detalls són al README i a la llicència."
  ],
  "cn": [
   "稍后",
@@ -99,7 +104,8 @@
   "源代码",
   "许可证",
   "测试版",
-  "此远程桌面基于 RustDesk (github.com/rustdesk/rustdesk)，自 2026 年 11 月起由 Vladyslav Pereverzyev 修改。它以 GNU Affero General Public License 第 3 版发布。RustDesk 是其所有者的商标；本应用与 RustDesk 项目无关，也未获得其认可。"
+  "此远程桌面基于 RustDesk (github.com/rustdesk/rustdesk)，自 2026 年 11 月起由 Vladyslav Pereverzyev 修改。它以 GNU Affero General Public License 第 3 版发布。RustDesk 是其所有者的商标；本应用与 RustDesk 项目无关，也未获得其认可。",
+  "本应用是自由软件，按原样提供，不附带任何担保。在法律允许的范围内，Vladyslav Pereverzyev 不对因使用本应用造成的任何损失承担责任。详情见 README 和许可证。"
  ],
  "cs": [
   "Později",
@@ -116,7 +122,8 @@
   "Zdrojový kód",
   "Licence",
   "Testovací verze",
-  "Tato vzdálená plocha vychází z RustDesk (github.com/rustdesk/rustdesk) a Vladyslav Pereverzyev ji upravuje od listopadu 2026. Je šířena pod licencí GNU Affero General Public License verze 3. RustDesk je ochranná známka svých vlastníků; tato aplikace není s projektem RustDesk spojena ani jím schválena."
+  "Tato vzdálená plocha vychází z RustDesk (github.com/rustdesk/rustdesk) a Vladyslav Pereverzyev ji upravuje od listopadu 2026. Je šířena pod licencí GNU Affero General Public License verze 3. RustDesk je ochranná známka svých vlastníků; tato aplikace není s projektem RustDesk spojena ani jím schválena.",
+  "Aplikace je svobodný software a poskytuje se tak, jak je, bez jakékoli záruky. V rozsahu, který zákon dovoluje, Vladyslav Pereverzyev neodpovídá za žádné škody vzniklé jejím používáním. Podrobnosti jsou v README a v licenci."
  ],
  "da": [
   "Senere",
@@ -133,7 +140,8 @@
   "Kildekode",
   "Licens",
   "Testversion",
-  "Dette fjernskrivebord er baseret på RustDesk (github.com/rustdesk/rustdesk) og ændret af Vladyslav Pereverzyev fra november 2026. Det udgives under GNU Affero General Public License version 3. RustDesk er et varemærke tilhørende dets ejere; denne app er ikke tilknyttet eller godkendt af RustDesk-projektet."
+  "Dette fjernskrivebord er baseret på RustDesk (github.com/rustdesk/rustdesk) og ændret af Vladyslav Pereverzyev fra november 2026. Det udgives under GNU Affero General Public License version 3. RustDesk er et varemærke tilhørende dets ejere; denne app er ikke tilknyttet eller godkendt af RustDesk-projektet.",
+  "Appen er fri software og leveres, som den er, uden nogen garanti. I det omfang loven tillader det, er Vladyslav Pereverzyev ikke ansvarlig for skader, der skyldes brugen af den. Detaljerne står i README og i licensen."
  ],
  "de": [
   "Später",
@@ -150,7 +158,8 @@
   "Quellcode",
   "Lizenz",
   "Testversion",
-  "Dieser Remote-Desktop basiert auf RustDesk (github.com/rustdesk/rustdesk) und wird seit November 2026 von Vladyslav Pereverzyev verändert. Er steht unter der GNU Affero General Public License Version 3. RustDesk ist eine Marke ihrer Inhaber; diese App ist nicht mit dem RustDesk-Projekt verbunden und wird nicht von ihm unterstützt."
+  "Dieser Remote-Desktop basiert auf RustDesk (github.com/rustdesk/rustdesk) und wird seit November 2026 von Vladyslav Pereverzyev verändert. Er steht unter der GNU Affero General Public License Version 3. RustDesk ist eine Marke ihrer Inhaber; diese App ist nicht mit dem RustDesk-Projekt verbunden und wird nicht von ihm unterstützt.",
+  "Die App ist freie Software und wird so bereitgestellt, wie sie ist, ohne jede Gewährleistung. Soweit gesetzlich zulässig, haftet Vladyslav Pereverzyev nicht für Schäden, die aus ihrer Nutzung entstehen. Die Einzelheiten stehen in der README und in der Lizenz."
  ],
  "el": [
   "Αργότερα",
@@ -167,7 +176,8 @@
   "Πηγαίος κώδικας",
   "Άδεια",
   "Δοκιμαστική έκδοση",
-  "Αυτή η απομακρυσμένη επιφάνεια εργασίας βασίζεται στο RustDesk (github.com/rustdesk/rustdesk) και τροποποιείται από τον Vladyslav Pereverzyev από τον Νοέμβριο του 2026. Διανέμεται με την άδεια GNU Affero General Public License έκδοση 3. Το RustDesk είναι εμπορικό σήμα των κατόχων του· αυτή η εφαρμογή δεν συνδέεται με το έργο RustDesk ούτε έχει εγκριθεί από αυτό."
+  "Αυτή η απομακρυσμένη επιφάνεια εργασίας βασίζεται στο RustDesk (github.com/rustdesk/rustdesk) και τροποποιείται από τον Vladyslav Pereverzyev από τον Νοέμβριο του 2026. Διανέμεται με την άδεια GNU Affero General Public License έκδοση 3. Το RustDesk είναι εμπορικό σήμα των κατόχων του· αυτή η εφαρμογή δεν συνδέεται με το έργο RustDesk ούτε έχει εγκριθεί από αυτό.",
+  "Η εφαρμογή είναι ελεύθερο λογισμικό και παρέχεται ως έχει, χωρίς καμία εγγύηση. Στο μέτρο που επιτρέπει ο νόμος, ο Vladyslav Pereverzyev δεν ευθύνεται για καμία ζημία από τη χρήση της. Οι λεπτομέρειες βρίσκονται στο README και στην άδεια."
  ],
  "eo": [
   "Poste",
@@ -184,7 +194,8 @@
   "Fontkodo",
   "Permesilo",
   "Prova versio",
-  "Ĉi tiu fora labortablo baziĝas sur RustDesk (github.com/rustdesk/rustdesk) kaj Vladyslav Pereverzyev ŝanĝas ĝin ekde novembro 2026. Ĝi estas distribuata laŭ la permesilo GNU Affero General Public License versio 3. RustDesk estas varmarko de siaj posedantoj; ĉi tiu aplikaĵo ne estas ligita al la projekto RustDesk nek aprobita de ĝi."
+  "Ĉi tiu fora labortablo baziĝas sur RustDesk (github.com/rustdesk/rustdesk) kaj Vladyslav Pereverzyev ŝanĝas ĝin ekde novembro 2026. Ĝi estas distribuata laŭ la permesilo GNU Affero General Public License versio 3. RustDesk estas varmarko de siaj posedantoj; ĉi tiu aplikaĵo ne estas ligita al la projekto RustDesk nek aprobita de ĝi.",
+  "La apo estas libera programaro kaj estas donata tia, kia ĝi estas, sen ia garantio. Laŭ la mezuro, kiun la leĝo permesas, Vladyslav Pereverzyev ne respondecas pri ia damaĝo el ĝia uzo. La detaloj estas en la README kaj en la permesilo."
  ],
  "es": [
   "Más tarde",
@@ -201,7 +212,8 @@
   "Código fuente",
   "Licencia",
   "Versión de prueba",
-  "Este escritorio remoto está basado en RustDesk (github.com/rustdesk/rustdesk) y modificado por Vladyslav Pereverzyev desde noviembre de 2026. Se distribuye con la licencia GNU Affero General Public License versión 3. RustDesk es una marca de sus titulares; esta app no está afiliada al proyecto RustDesk ni respaldada por él."
+  "Este escritorio remoto está basado en RustDesk (github.com/rustdesk/rustdesk) y modificado por Vladyslav Pereverzyev desde noviembre de 2026. Se distribuye con la licencia GNU Affero General Public License versión 3. RustDesk es una marca de sus titulares; esta app no está afiliada al proyecto RustDesk ni respaldada por él.",
+  "La app es software libre y se ofrece tal cual, sin ninguna garantía. En la medida en que la ley lo permita, Vladyslav Pereverzyev no se hace responsable de ningún daño derivado de su uso. Los detalles están en el README y en la licencia."
  ],
  "et": [
   "Hiljem",
@@ -218,7 +230,8 @@
   "Lähtekood",
   "Litsents",
   "Testversioon",
-  "See kaugtöölaud põhineb RustDeskil (github.com/rustdesk/rustdesk) ja Vladyslav Pereverzyev muudab seda alates 2026. aasta novembrist. Seda levitatakse GNU Affero General Public License versiooni 3 alusel. RustDesk on oma omanike kaubamärk; see rakendus ei ole RustDeski projektiga seotud ega selle poolt heaks kiidetud."
+  "See kaugtöölaud põhineb RustDeskil (github.com/rustdesk/rustdesk) ja Vladyslav Pereverzyev muudab seda alates 2026. aasta novembrist. Seda levitatakse GNU Affero General Public License versiooni 3 alusel. RustDesk on oma omanike kaubamärk; see rakendus ei ole RustDeski projektiga seotud ega selle poolt heaks kiidetud.",
+  "Rakendus on vaba tarkvara ja seda pakutakse sellisena, nagu see on, ilma igasuguse garantiita. Seadusega lubatud ulatuses ei vastuta Vladyslav Pereverzyev selle kasutamisest tekkinud kahju eest. Üksikasjad on README-s ja litsentsis."
  ],
  "eu": [
   "Geroago",
@@ -235,7 +248,8 @@
   "Iturburu-kodea",
   "Lizentzia",
   "Proba-bertsioa",
-  "Urruneko mahaigain hau RustDesk-en oinarrituta dago (github.com/rustdesk/rustdesk) eta Vladyslav Pereverzyevek aldatzen du 2026ko azarotik. GNU Affero General Public License 3. bertsioaren lizentziapean banatzen da. RustDesk bere jabeen marka da; aplikazio hau ez dago RustDesk proiektuari lotuta eta proiektuak ez du onartzen."
+  "Urruneko mahaigain hau RustDesk-en oinarrituta dago (github.com/rustdesk/rustdesk) eta Vladyslav Pereverzyevek aldatzen du 2026ko azarotik. GNU Affero General Public License 3. bertsioaren lizentziapean banatzen da. RustDesk bere jabeen marka da; aplikazio hau ez dago RustDesk proiektuari lotuta eta proiektuak ez du onartzen.",
+  "Aplikazioa software librea da eta dagoen bezala ematen da, inolako bermerik gabe. Legeak uzten duen neurrian, Vladyslav Pereverzyev ez da haren erabileratik datozen kalteen erantzule. Xehetasunak README fitxategian eta lizentzian daude."
  ],
  "fa": [
   "بعدا",
@@ -252,7 +266,8 @@
   "کد منبع",
   "مجوز",
   "نسخه آزمایشی",
-  "این دسکتاپ از راه دور بر پایه RustDesk (github.com/rustdesk/rustdesk) است و از نوامبر 2026 توسط Vladyslav Pereverzyev تغییر داده می‌شود. این برنامه تحت مجوز GNU Affero General Public License نسخه 3 منتشر می‌شود. RustDesk علامت تجاری صاحبان آن است؛ این برنامه به پروژه RustDesk وابسته نیست و مورد تأیید آن نیست."
+  "این دسکتاپ از راه دور بر پایه RustDesk (github.com/rustdesk/rustdesk) است و از نوامبر 2026 توسط Vladyslav Pereverzyev تغییر داده می‌شود. این برنامه تحت مجوز GNU Affero General Public License نسخه 3 منتشر می‌شود. RustDesk علامت تجاری صاحبان آن است؛ این برنامه به پروژه RustDesk وابسته نیست و مورد تأیید آن نیست.",
+  "این برنامه نرم‌افزار آزاد است و همان‌گونه که هست، بدون هیچ ضمانتی ارائه می‌شود. تا جایی که قانون اجازه می‌دهد، Vladyslav Pereverzyev مسئول هیچ خسارتی ناشی از استفاده از آن نیست. جزئیات در README و در مجوز آمده است."
  ],
  "fi": [
   "Myöhemmin",
@@ -269,7 +284,8 @@
   "Lähdekoodi",
   "Lisenssi",
   "Testiversio",
-  "Tämä etätyöpöytä perustuu RustDeskiin (github.com/rustdesk/rustdesk) ja Vladyslav Pereverzyev on muokannut sitä marraskuusta 2026 alkaen. Se julkaistaan GNU Affero General Public License -lisenssin version 3 alla. RustDesk on omistajiensa tavaramerkki; tämä sovellus ei ole RustDesk-projektin kanssa yhteydessä eikä sen hyväksymä."
+  "Tämä etätyöpöytä perustuu RustDeskiin (github.com/rustdesk/rustdesk) ja Vladyslav Pereverzyev on muokannut sitä marraskuusta 2026 alkaen. Se julkaistaan GNU Affero General Public License -lisenssin version 3 alla. RustDesk on omistajiensa tavaramerkki; tämä sovellus ei ole RustDesk-projektin kanssa yhteydessä eikä sen hyväksymä.",
+  "Sovellus on vapaa ohjelmisto, ja se toimitetaan sellaisenaan ilman mitään takuuta. Lain sallimissa rajoissa Vladyslav Pereverzyev ei vastaa mistään sen käytöstä aiheutuvista vahingoista. Tiedot ovat README-tiedostossa ja lisenssissä."
  ],
  "fr": [
   "Plus tard",
@@ -286,7 +302,8 @@
   "Code source",
   "Licence",
   "Version de test",
-  "Ce bureau à distance est basé sur RustDesk (github.com/rustdesk/rustdesk) et modifié par Vladyslav Pereverzyev depuis novembre 2026. Il est distribué sous la licence GNU Affero General Public License version 3. RustDesk est une marque de ses titulaires ; cette app n'est ni affiliée au projet RustDesk ni approuvée par lui."
+  "Ce bureau à distance est basé sur RustDesk (github.com/rustdesk/rustdesk) et modifié par Vladyslav Pereverzyev depuis novembre 2026. Il est distribué sous la licence GNU Affero General Public License version 3. RustDesk est une marque de ses titulaires ; cette app n'est ni affiliée au projet RustDesk ni approuvée par lui.",
+  "L'application est un logiciel libre fourni tel quel, sans aucune garantie. Dans la mesure permise par la loi, Vladyslav Pereverzyev n'est pas responsable des dommages liés à son utilisation. Les détails se trouvent dans le README et dans la licence."
  ],
  "ge": [
   "მოგვიანებით",
@@ -303,7 +320,8 @@
   "წყაროს კოდი",
   "ლიცენზია",
   "სატესტო ვერსია",
-  "ეს დისტანციური სამუშაო მაგიდა RustDesk-ზეა დაფუძნებული (github.com/rustdesk/rustdesk) და მას 2026 წლის ნოემბრიდან Vladyslav Pereverzyev ცვლის. ის ვრცელდება GNU Affero General Public License-ის მე-3 ვერსიის ლიცენზიით. RustDesk მისი მფლობელების სავაჭრო ნიშანია; ეს აპი არ არის დაკავშირებული RustDesk პროექტთან და არ არის მის მიერ დამტკიცებული."
+  "ეს დისტანციური სამუშაო მაგიდა RustDesk-ზეა დაფუძნებული (github.com/rustdesk/rustdesk) და მას 2026 წლის ნოემბრიდან Vladyslav Pereverzyev ცვლის. ის ვრცელდება GNU Affero General Public License-ის მე-3 ვერსიის ლიცენზიით. RustDesk მისი მფლობელების სავაჭრო ნიშანია; ეს აპი არ არის დაკავშირებული RustDesk პროექტთან და არ არის მის მიერ დამტკიცებული.",
+  "აპლიკაცია თავისუფალი პროგრამაა და მოწოდებულია ისე, როგორც არის, ყოველგვარი გარანტიის გარეშე. კანონით დაშვებულ ფარგლებში Vladyslav Pereverzyev არ აგებს პასუხს მისი გამოყენებით მიყენებულ ზიანზე. დეტალები მოცემულია README-ში და ლიცენზიაში."
  ],
  "gl": [
   "Máis tarde",
@@ -320,7 +338,8 @@
   "Código fonte",
   "Licenza",
   "Versión de proba",
-  "Este escritorio remoto está baseado en RustDesk (github.com/rustdesk/rustdesk) e modificado por Vladyslav Pereverzyev desde novembro de 2026. Distribúese coa licenza GNU Affero General Public License versión 3. RustDesk é unha marca dos seus titulares; esta app non está afiliada ao proxecto RustDesk nin aprobada por el."
+  "Este escritorio remoto está baseado en RustDesk (github.com/rustdesk/rustdesk) e modificado por Vladyslav Pereverzyev desde novembro de 2026. Distribúese coa licenza GNU Affero General Public License versión 3. RustDesk é unha marca dos seus titulares; esta app non está afiliada ao proxecto RustDesk nin aprobada por el.",
+  "A aplicación é software libre e ofrécese tal como está, sen ningunha garantía. Na medida en que a lei o permita, Vladyslav Pereverzyev non se fai responsable de ningún dano derivado do seu uso. Os detalles están no README e na licenza."
  ],
  "gu": [
   "પછીથી",
@@ -337,7 +356,8 @@
   "સોર્સ કોડ",
   "લાઇસન્સ",
   "પરીક્ષણ વર્ઝન",
-  "આ રિમોટ ડેસ્કટોપ RustDesk (github.com/rustdesk/rustdesk) પર આધારિત છે અને નવેમ્બર 2026 થી Vladyslav Pereverzyev તેમાં ફેરફાર કરે છે. તે GNU Affero General Public License વર્ઝન 3 હેઠળ પ્રકાશિત છે. RustDesk તેના માલિકોનો ટ્રેડમાર્ક છે; આ ઍપ RustDesk પ્રોજેક્ટ સાથે જોડાયેલી નથી અને તેના દ્વારા માન્ય નથી."
+  "આ રિમોટ ડેસ્કટોપ RustDesk (github.com/rustdesk/rustdesk) પર આધારિત છે અને નવેમ્બર 2026 થી Vladyslav Pereverzyev તેમાં ફેરફાર કરે છે. તે GNU Affero General Public License વર્ઝન 3 હેઠળ પ્રકાશિત છે. RustDesk તેના માલિકોનો ટ્રેડમાર્ક છે; આ ઍપ RustDesk પ્રોજેક્ટ સાથે જોડાયેલી નથી અને તેના દ્વારા માન્ય નથી.",
+  "આ એપ મુક્ત સોફ્ટવેર છે અને જેમ છે તેમ, કોઈ પણ વોરંટી વગર આપવામાં આવે છે. કાયદો મંજૂરી આપે ત્યાં સુધી, Vladyslav Pereverzyev તેના ઉપયોગથી થતા કોઈ પણ નુકસાન માટે જવાબદાર નથી. વિગતો README અને લાઇસન્સમાં છે."
  ],
  "he": [
   "מאוחר יותר",
@@ -354,7 +374,8 @@
   "קוד מקור",
   "רישיון",
   "גרסת ניסיון",
-  "שולחן העבודה המרוחק הזה מבוסס על RustDesk (github.com/rustdesk/rustdesk) ומשתנה על ידי Vladyslav Pereverzyev מאז נובמבר 2026. הוא מופץ תחת הרישיון GNU Affero General Public License גרסה 3. RustDesk הוא סימן מסחרי של בעליו; האפליקציה הזו אינה קשורה לפרויקט RustDesk ואינה מאושרת על ידו."
+  "שולחן העבודה המרוחק הזה מבוסס על RustDesk (github.com/rustdesk/rustdesk) ומשתנה על ידי Vladyslav Pereverzyev מאז נובמבר 2026. הוא מופץ תחת הרישיון GNU Affero General Public License גרסה 3. RustDesk הוא סימן מסחרי של בעליו; האפליקציה הזו אינה קשורה לפרויקט RustDesk ואינה מאושרת על ידו.",
+  "האפליקציה היא תוכנה חופשית והיא מסופקת כמות שהיא, ללא כל אחריות. במידה שהחוק מתיר, Vladyslav Pereverzyev אינו אחראי לכל נזק הנובע מהשימוש בה. הפרטים נמצאים ב-README וברישיון."
  ],
  "hi": [
   "बाद में",
@@ -371,7 +392,8 @@
   "सोर्स कोड",
   "लाइसेंस",
   "परीक्षण संस्करण",
-  "यह रिमोट डेस्कटॉप RustDesk (github.com/rustdesk/rustdesk) पर आधारित है और नवंबर 2026 से Vladyslav Pereverzyev इसे बदल रहे हैं। यह GNU Affero General Public License संस्करण 3 के तहत जारी किया गया है। RustDesk अपने मालिकों का ट्रेडमार्क है; यह ऐप RustDesk प्रोजेक्ट से जुड़ा नहीं है और उसके द्वारा स्वीकृत नहीं है।"
+  "यह रिमोट डेस्कटॉप RustDesk (github.com/rustdesk/rustdesk) पर आधारित है और नवंबर 2026 से Vladyslav Pereverzyev इसे बदल रहे हैं। यह GNU Affero General Public License संस्करण 3 के तहत जारी किया गया है। RustDesk अपने मालिकों का ट्रेडमार्क है; यह ऐप RustDesk प्रोजेक्ट से जुड़ा नहीं है और उसके द्वारा स्वीकृत नहीं है।",
+  "यह ऐप मुक्त सॉफ़्टवेयर है और जैसा है वैसा, बिना किसी वारंटी के दिया जाता है। कानून जहाँ तक अनुमति देता है, Vladyslav Pereverzyev इसके उपयोग से होने वाली किसी भी हानि के लिए उत्तरदायी नहीं है। विवरण README और लाइसेंस में हैं।"
  ],
  "hr": [
   "Kasnije",
@@ -388,7 +410,8 @@
   "Izvorni kod",
   "Licenca",
   "Probna verzija",
-  "Ova udaljena radna površina temelji se na RustDesku (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev je mijenja od studenoga 2026. Objavljena je pod licencom GNU Affero General Public License verzije 3. RustDesk je zaštitni znak svojih vlasnika; ova aplikacija nije povezana s projektom RustDesk niti ju je on odobrio."
+  "Ova udaljena radna površina temelji se na RustDesku (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev je mijenja od studenoga 2026. Objavljena je pod licencom GNU Affero General Public License verzije 3. RustDesk je zaštitni znak svojih vlasnika; ova aplikacija nije povezana s projektom RustDesk niti ju je on odobrio.",
+  "Aplikacija je slobodni softver i isporučuje se takva kakva jest, bez ikakvog jamstva. U mjeri u kojoj zakon dopušta, Vladyslav Pereverzyev ne odgovara ni za kakvu štetu nastalu njezinom uporabom. Pojedinosti su u README-u i u licenci."
  ],
  "hu": [
   "Később",
@@ -405,7 +428,8 @@
   "Forráskód",
   "Licenc",
   "Tesztverzió",
-  "Ez a távoli asztal a RustDesken alapul (github.com/rustdesk/rustdesk) és 2026 novembere óta Vladyslav Pereverzyev módosítja. A GNU Affero General Public License 3. verziója alatt terjesztik. A RustDesk a tulajdonosai védjegye; ez az alkalmazás nem kapcsolódik a RustDesk projekthez és azt a projekt nem hagyta jóvá."
+  "Ez a távoli asztal a RustDesken alapul (github.com/rustdesk/rustdesk) és 2026 novembere óta Vladyslav Pereverzyev módosítja. A GNU Affero General Public License 3. verziója alatt terjesztik. A RustDesk a tulajdonosai védjegye; ez az alkalmazás nem kapcsolódik a RustDesk projekthez és azt a projekt nem hagyta jóvá.",
+  "Az alkalmazás szabad szoftver, és úgy, ahogy van, mindenféle garancia nélkül kerül átadásra. A törvény által megengedett mértékben Vladyslav Pereverzyev nem felel a használatából eredő károkért. A részletek a README-ben és a licencben találhatók."
  ],
  "id": [
   "Nanti",
@@ -422,7 +446,8 @@
   "Kode sumber",
   "Lisensi",
   "Versi uji coba",
-  "Desktop jarak jauh ini berbasis RustDesk (github.com/rustdesk/rustdesk) dan diubah oleh Vladyslav Pereverzyev sejak November 2026. Aplikasi ini dirilis dengan lisensi GNU Affero General Public License versi 3. RustDesk adalah merek dagang pemiliknya; aplikasi ini tidak berafiliasi dengan proyek RustDesk dan tidak didukung olehnya."
+  "Desktop jarak jauh ini berbasis RustDesk (github.com/rustdesk/rustdesk) dan diubah oleh Vladyslav Pereverzyev sejak November 2026. Aplikasi ini dirilis dengan lisensi GNU Affero General Public License versi 3. RustDesk adalah merek dagang pemiliknya; aplikasi ini tidak berafiliasi dengan proyek RustDesk dan tidak didukung olehnya.",
+  "Aplikasi ini adalah perangkat lunak bebas dan diberikan apa adanya, tanpa jaminan apa pun. Sejauh diizinkan oleh hukum, Vladyslav Pereverzyev tidak bertanggung jawab atas kerugian apa pun akibat penggunaannya. Rinciannya ada di README dan di lisensi."
  ],
  "ja": [
   "後で",
@@ -439,7 +464,8 @@
   "ソースコード",
   "ライセンス",
   "テスト版",
-  "このリモートデスクトップは RustDesk (github.com/rustdesk/rustdesk) をもとにしており、2026 年 11 月から Vladyslav Pereverzyev が変更しています。GNU Affero General Public License バージョン 3 で配布されています。RustDesk はその所有者の商標です。このアプリは RustDesk プロジェクトとは関係がなく、承認も受けていません。"
+  "このリモートデスクトップは RustDesk (github.com/rustdesk/rustdesk) をもとにしており、2026 年 11 月から Vladyslav Pereverzyev が変更しています。GNU Affero General Public License バージョン 3 で配布されています。RustDesk はその所有者の商標です。このアプリは RustDesk プロジェクトとは関係がなく、承認も受けていません。",
+  "このアプリはフリーソフトウェアであり、現状のまま、いかなる保証もなく提供されます。法律で認められる範囲で、Vladyslav Pereverzyev はその使用から生じるいかなる損害についても責任を負いません。詳細は README とライセンスにあります。"
  ],
  "ko": [
   "나중에",
@@ -456,7 +482,8 @@
   "소스 코드",
   "라이선스",
   "테스트 버전",
-  "이 원격 데스크톱은 RustDesk (github.com/rustdesk/rustdesk)를 기반으로 하며 2026년 11월부터 Vladyslav Pereverzyev가 변경하고 있습니다. GNU Affero General Public License 버전 3으로 배포됩니다. RustDesk는 해당 소유자의 상표입니다. 이 앱은 RustDesk 프로젝트와 관련이 없으며 승인을 받지 않았습니다."
+  "이 원격 데스크톱은 RustDesk (github.com/rustdesk/rustdesk)를 기반으로 하며 2026년 11월부터 Vladyslav Pereverzyev가 변경하고 있습니다. GNU Affero General Public License 버전 3으로 배포됩니다. RustDesk는 해당 소유자의 상표입니다. 이 앱은 RustDesk 프로젝트와 관련이 없으며 승인을 받지 않았습니다.",
+  "이 앱은 자유 소프트웨어이며 어떠한 보증도 없이 있는 그대로 제공됩니다. 법이 허용하는 범위에서 Vladyslav Pereverzyev는 사용으로 인해 발생하는 어떠한 손해에 대해서도 책임을 지지 않습니다. 자세한 내용은 README와 라이선스에 있습니다."
  ],
  "kz": [
   "Кейінірек",
@@ -473,7 +500,8 @@
   "Бастапқы код",
   "Лицензия",
   "Сынақ нұсқасы",
-  "Бұл қашықтағы жұмыс үстелі RustDesk негізінде жасалған (github.com/rustdesk/rustdesk) және оны 2026 жылдың қарашасынан бері Vladyslav Pereverzyev өзгертеді. Ол GNU Affero General Public License 3-нұсқасы лицензиясымен таратылады. RustDesk өз иелерінің сауда белгісі; бұл қолданба RustDesk жобасымен байланысты емес және оны жоба мақұлдамаған."
+  "Бұл қашықтағы жұмыс үстелі RustDesk негізінде жасалған (github.com/rustdesk/rustdesk) және оны 2026 жылдың қарашасынан бері Vladyslav Pereverzyev өзгертеді. Ол GNU Affero General Public License 3-нұсқасы лицензиясымен таратылады. RustDesk өз иелерінің сауда белгісі; бұл қолданба RustDesk жобасымен байланысты емес және оны жоба мақұлдамаған.",
+  "Қолданба еркін бағдарламалық жасақтама болып табылады және ешқандай кепілдіксіз, сол күйінде беріледі. Заң рұқсат еткен шекте Vladyslav Pereverzyev оны пайдаланудан туындаған кез келген зиян үшін жауап бермейді. Толығырақ README мен лицензияда."
  ],
  "lt": [
   "Vėliau",
@@ -490,7 +518,8 @@
   "Pirminis kodas",
   "Licencija",
   "Bandomoji versija",
-  "Šis nuotolinis darbalaukis sukurtas RustDesk pagrindu (github.com/rustdesk/rustdesk), o Vladyslav Pereverzyev jį keičia nuo 2026 m. lapkričio. Jis platinamas pagal GNU Affero General Public License 3 versijos licenciją. RustDesk yra jos savininkų prekių ženklas; ši programėlė nėra susijusi su RustDesk projektu ir jo nepatvirtinta."
+  "Šis nuotolinis darbalaukis sukurtas RustDesk pagrindu (github.com/rustdesk/rustdesk), o Vladyslav Pereverzyev jį keičia nuo 2026 m. lapkričio. Jis platinamas pagal GNU Affero General Public License 3 versijos licenciją. RustDesk yra jos savininkų prekių ženklas; ši programėlė nėra susijusi su RustDesk projektu ir jo nepatvirtinta.",
+  "Programėlė yra laisvoji programinė įranga ir teikiama tokia, kokia yra, be jokių garantijų. Kiek leidžia įstatymai, Vladyslav Pereverzyev neatsako už jokią žalą, kilusią dėl jos naudojimo. Išsami informacija pateikta README ir licencijoje."
  ],
  "lv": [
   "Vēlāk",
@@ -507,7 +536,8 @@
   "Pirmkods",
   "Licence",
   "Testa versija",
-  "Šī attālā darbvirsma ir balstīta uz RustDesk (github.com/rustdesk/rustdesk) un Vladyslav Pereverzyev to maina kopš 2026. gada novembra. Tā tiek izplatīta ar GNU Affero General Public License 3. versijas licenci. RustDesk ir tā īpašnieku preču zīme; šī lietotne nav saistīta ar RustDesk projektu un to nav apstiprinājusi."
+  "Šī attālā darbvirsma ir balstīta uz RustDesk (github.com/rustdesk/rustdesk) un Vladyslav Pereverzyev to maina kopš 2026. gada novembra. Tā tiek izplatīta ar GNU Affero General Public License 3. versijas licenci. RustDesk ir tā īpašnieku preču zīme; šī lietotne nav saistīta ar RustDesk projektu un to nav apstiprinājusi.",
+  "Lietotne ir brīvā programmatūra, un tā tiek nodrošināta tāda, kāda tā ir, bez jebkādas garantijas. Ciktāl to pieļauj likums, Vladyslav Pereverzyev neatbild par zaudējumiem, kas radušies tās lietošanas dēļ. Sīkāka informācija ir README un licencē."
  ],
  "ml": [
   "പിന്നീട്",
@@ -524,7 +554,8 @@
   "സോഴ്സ് കോഡ്",
   "ലൈസൻസ്",
   "പരീക്ഷണ പതിപ്പ്",
-  "ഈ റിമോട്ട് ഡെസ്ക്ടോപ്പ് RustDesk (github.com/rustdesk/rustdesk) അടിസ്ഥാനമാക്കിയുള്ളതാണ്, 2026 നവംബർ മുതൽ Vladyslav Pereverzyev ഇതിൽ മാറ്റങ്ങൾ വരുത്തുന്നു. ഇത് GNU Affero General Public License പതിപ്പ് 3 പ്രകാരം പ്രസിദ്ധീകരിച്ചിരിക്കുന്നു. RustDesk അതിന്റെ ഉടമകളുടെ വ്യാപാരമുദ്രയാണ്; ഈ ആപ്പ് RustDesk പ്രോജക്റ്റുമായി ബന്ധപ്പെട്ടതോ അത് അംഗീകരിച്ചതോ അല്ല."
+  "ഈ റിമോട്ട് ഡെസ്ക്ടോപ്പ് RustDesk (github.com/rustdesk/rustdesk) അടിസ്ഥാനമാക്കിയുള്ളതാണ്, 2026 നവംബർ മുതൽ Vladyslav Pereverzyev ഇതിൽ മാറ്റങ്ങൾ വരുത്തുന്നു. ഇത് GNU Affero General Public License പതിപ്പ് 3 പ്രകാരം പ്രസിദ്ധീകരിച്ചിരിക്കുന്നു. RustDesk അതിന്റെ ഉടമകളുടെ വ്യാപാരമുദ്രയാണ്; ഈ ആപ്പ് RustDesk പ്രോജക്റ്റുമായി ബന്ധപ്പെട്ടതോ അത് അംഗീകരിച്ചതോ അല്ല.",
+  "ഈ ആപ്പ് സ്വതന്ത്ര സോഫ്റ്റ്‌വെയറാണ്, ഒരു വാറന്റിയും ഇല്ലാതെ ഉള്ളതുപോലെ നൽകുന്നു. നിയമം അനുവദിക്കുന്നിടത്തോളം, ഇതിന്റെ ഉപയോഗം മൂലമുള്ള ഒരു നഷ്ടത്തിനും Vladyslav Pereverzyev ഉത്തരവാദിയല്ല. വിശദാംശങ്ങൾ README-യിലും ലൈസൻസിലും ഉണ്ട്."
  ],
  "nb": [
   "Senere",
@@ -541,7 +572,8 @@
   "Kildekode",
   "Lisens",
   "Testversjon",
-  "Dette eksterne skrivebordet er basert på RustDesk (github.com/rustdesk/rustdesk) og endret av Vladyslav Pereverzyev fra november 2026. Det er utgitt under GNU Affero General Public License versjon 3. RustDesk er et varemerke som tilhører eierne; denne appen er ikke tilknyttet eller godkjent av RustDesk-prosjektet."
+  "Dette eksterne skrivebordet er basert på RustDesk (github.com/rustdesk/rustdesk) og endret av Vladyslav Pereverzyev fra november 2026. Det er utgitt under GNU Affero General Public License versjon 3. RustDesk er et varemerke som tilhører eierne; denne appen er ikke tilknyttet eller godkjent av RustDesk-prosjektet.",
+  "Appen er fri programvare og leveres som den er, uten noen garanti. Så langt loven tillater det, er Vladyslav Pereverzyev ikke ansvarlig for skader som skyldes bruken av den. Detaljene står i README og i lisensen."
  ],
  "nl": [
   "Later",
@@ -558,7 +590,8 @@
   "Broncode",
   "Licentie",
   "Testversie",
-  "Deze remote desktop is gebaseerd op RustDesk (github.com/rustdesk/rustdesk) en wordt sinds november 2026 aangepast door Vladyslav Pereverzyev. Hij wordt verspreid onder de GNU Affero General Public License versie 3. RustDesk is een merk van de eigenaars; deze app is niet verbonden aan het RustDesk-project en wordt er niet door gesteund."
+  "Deze remote desktop is gebaseerd op RustDesk (github.com/rustdesk/rustdesk) en wordt sinds november 2026 aangepast door Vladyslav Pereverzyev. Hij wordt verspreid onder de GNU Affero General Public License versie 3. RustDesk is een merk van de eigenaars; deze app is niet verbonden aan het RustDesk-project en wordt er niet door gesteund.",
+  "De app is vrije software en wordt geleverd zoals hij is, zonder enige garantie. Voor zover de wet het toestaat, is Vladyslav Pereverzyev niet aansprakelijk voor schade door het gebruik ervan. De details staan in de README en in de licentie."
  ],
  "pl": [
   "Później",
@@ -575,7 +608,8 @@
   "Kod źródłowy",
   "Licencja",
   "Wersja testowa",
-  "Ten pulpit zdalny jest oparty na RustDesk (github.com/rustdesk/rustdesk) i zmieniany przez Vladyslava Pereverzyeva od listopada 2026. Jest udostępniany na licencji GNU Affero General Public License w wersji 3. RustDesk jest znakiem towarowym jego właścicieli; ta aplikacja nie jest powiązana z projektem RustDesk ani przez niego zatwierdzona."
+  "Ten pulpit zdalny jest oparty na RustDesk (github.com/rustdesk/rustdesk) i zmieniany przez Vladyslava Pereverzyeva od listopada 2026. Jest udostępniany na licencji GNU Affero General Public License w wersji 3. RustDesk jest znakiem towarowym jego właścicieli; ta aplikacja nie jest powiązana z projektem RustDesk ani przez niego zatwierdzona.",
+  "Aplikacja jest wolnym oprogramowaniem i jest dostarczana w stanie, w jakim jest, bez żadnej gwarancji. W zakresie dozwolonym przez prawo Vladyslav Pereverzyev nie ponosi odpowiedzialności za szkody wynikające z jej używania. Szczegóły są w README i w licencji."
  ],
  "pt_BR": [
   "Mais tarde",
@@ -592,7 +626,8 @@
   "Código-fonte",
   "Licença",
   "Versão de teste",
-  "Esta área de trabalho remota é baseada no RustDesk (github.com/rustdesk/rustdesk) e modificada por Vladyslav Pereverzyev desde novembro de 2026. É distribuída sob a licença GNU Affero General Public License versão 3. RustDesk é uma marca de seus titulares; este app não é afiliado ao projeto RustDesk nem endossado por ele."
+  "Esta área de trabalho remota é baseada no RustDesk (github.com/rustdesk/rustdesk) e modificada por Vladyslav Pereverzyev desde novembro de 2026. É distribuída sob a licença GNU Affero General Public License versão 3. RustDesk é uma marca de seus titulares; este app não é afiliado ao projeto RustDesk nem endossado por ele.",
+  "O app é software livre e é fornecido como está, sem nenhuma garantia. Na medida permitida pela lei, Vladyslav Pereverzyev não se responsabiliza por nenhum dano decorrente do seu uso. Os detalhes estão no README e na licença."
  ],
  "pt_PT": [
   "Mais tarde",
@@ -609,7 +644,8 @@
   "Código-fonte",
   "Licença",
   "Versão de teste",
-  "Este ambiente de trabalho remoto é baseado no RustDesk (github.com/rustdesk/rustdesk) e modificado por Vladyslav Pereverzyev desde novembro de 2026. É distribuído sob a licença GNU Affero General Public License versão 3. RustDesk é uma marca dos seus titulares; esta aplicação não é afiliada ao projeto RustDesk nem aprovada por ele."
+  "Este ambiente de trabalho remoto é baseado no RustDesk (github.com/rustdesk/rustdesk) e modificado por Vladyslav Pereverzyev desde novembro de 2026. É distribuído sob a licença GNU Affero General Public License versão 3. RustDesk é uma marca dos seus titulares; esta aplicação não é afiliada ao projeto RustDesk nem aprovada por ele.",
+  "A aplicação é software livre e é fornecida tal como está, sem qualquer garantia. Na medida em que a lei o permita, Vladyslav Pereverzyev não se responsabiliza por quaisquer danos resultantes da sua utilização. Os detalhes estão no README e na licença."
  ],
  "ro": [
   "Mai târziu",
@@ -626,7 +662,8 @@
   "Cod sursă",
   "Licență",
   "Versiune de test",
-  "Acest desktop la distanță se bazează pe RustDesk (github.com/rustdesk/rustdesk) și este modificat de Vladyslav Pereverzyev din noiembrie 2026. Este distribuit sub licența GNU Affero General Public License versiunea 3. RustDesk este o marcă a titularilor săi; această aplicație nu este afiliată proiectului RustDesk și nu este aprobată de acesta."
+  "Acest desktop la distanță se bazează pe RustDesk (github.com/rustdesk/rustdesk) și este modificat de Vladyslav Pereverzyev din noiembrie 2026. Este distribuit sub licența GNU Affero General Public License versiunea 3. RustDesk este o marcă a titularilor săi; această aplicație nu este afiliată proiectului RustDesk și nu este aprobată de acesta.",
+  "Aplicația este software liber și este oferită așa cum este, fără nicio garanție. În măsura permisă de lege, Vladyslav Pereverzyev nu răspunde pentru niciun prejudiciu rezultat din utilizarea ei. Detaliile sunt în README și în licență."
  ],
  "ru": [
   "Позже",
@@ -643,7 +680,8 @@
   "Исходный код",
   "Лицензия",
   "Тестовая версия",
-  "Этот удалённый рабочий стол основан на RustDesk (github.com/rustdesk/rustdesk) и изменяется Vladyslav Pereverzyev с ноября 2026 года. Он распространяется по лицензии GNU Affero General Public License версии 3. RustDesk является товарным знаком своих владельцев; это приложение не связано с проектом RustDesk и не одобрено им."
+  "Этот удалённый рабочий стол основан на RustDesk (github.com/rustdesk/rustdesk) и изменяется Vladyslav Pereverzyev с ноября 2026 года. Он распространяется по лицензии GNU Affero General Public License версии 3. RustDesk является товарным знаком своих владельцев; это приложение не связано с проектом RustDesk и не одобрено им.",
+  "Приложение является свободным программным обеспечением и предоставляется как есть, без каких-либо гарантий. В пределах, допускаемых законом, Vladyslav Pereverzyev не несёт ответственности за любой ущерб от его использования. Подробности в README и в лицензии."
  ],
  "sc": [
   "Prus a tardu",
@@ -660,7 +698,8 @@
   "Còdighe de orìgine",
   "Lissèntzia",
   "Versione de proa",
-  "Custu desktop remotu est basadu in RustDesk (github.com/rustdesk/rustdesk) e Vladyslav Pereverzyev lu modìficat dae santandria de su 2026. Est distribuidu cun sa lissèntzia GNU Affero General Public License versione 3. RustDesk est unu marcu de sos titulares suos; custa app no est afiliada a su progetu RustDesk e no est aprovada dae issu."
+  "Custu desktop remotu est basadu in RustDesk (github.com/rustdesk/rustdesk) e Vladyslav Pereverzyev lu modìficat dae santandria de su 2026. Est distribuidu cun sa lissèntzia GNU Affero General Public License versione 3. RustDesk est unu marcu de sos titulares suos; custa app no est afiliada a su progetu RustDesk e no est aprovada dae issu.",
+  "S'aplicatzione est software lìberu e benit dada gasi comente est, sena peruna garantzia. In sa mesura chi sa lege lu permitit, Vladyslav Pereverzyev no est responsàbile de perunu dannu chi bèngiat dae s'impreu suo. Sos detàllios sunt in su README e in sa litzèntzia."
  ],
  "sk": [
   "Neskôr",
@@ -677,7 +716,8 @@
   "Zdrojový kód",
   "Licencia",
   "Testovacia verzia",
-  "Táto vzdialená plocha vychádza z RustDesk (github.com/rustdesk/rustdesk) a Vladyslav Pereverzyev ju upravuje od novembra 2026. Šíri sa pod licenciou GNU Affero General Public License verzie 3. RustDesk je ochranná známka svojich vlastníkov; táto aplikácia nie je s projektom RustDesk spojená ani ním schválená."
+  "Táto vzdialená plocha vychádza z RustDesk (github.com/rustdesk/rustdesk) a Vladyslav Pereverzyev ju upravuje od novembra 2026. Šíri sa pod licenciou GNU Affero General Public License verzie 3. RustDesk je ochranná známka svojich vlastníkov; táto aplikácia nie je s projektom RustDesk spojená ani ním schválená.",
+  "Aplikácia je slobodný softvér a poskytuje sa tak, ako je, bez akejkoľvek záruky. V rozsahu, ktorý dovoľuje zákon, Vladyslav Pereverzyev nezodpovedá za žiadne škody vzniknuté jej používaním. Podrobnosti sú v README a v licencii."
  ],
  "sl": [
   "Pozneje",
@@ -694,7 +734,8 @@
   "Izvorna koda",
   "Licenca",
   "Preizkusna različica",
-  "To oddaljeno namizje temelji na RustDesk (github.com/rustdesk/rustdesk) in ga Vladyslav Pereverzyev spreminja od novembra 2026. Izdano je pod licenco GNU Affero General Public License različice 3. RustDesk je blagovna znamka svojih lastnikov; ta aplikacija ni povezana s projektom RustDesk in je ta projekt ni odobril."
+  "To oddaljeno namizje temelji na RustDesk (github.com/rustdesk/rustdesk) in ga Vladyslav Pereverzyev spreminja od novembra 2026. Izdano je pod licenco GNU Affero General Public License različice 3. RustDesk je blagovna znamka svojih lastnikov; ta aplikacija ni povezana s projektom RustDesk in je ta projekt ni odobril.",
+  "Aplikacija je prosto programje in je na voljo takšna, kot je, brez kakršnega koli jamstva. V obsegu, ki ga dovoljuje zakon, Vladyslav Pereverzyev ne odgovarja za nobeno škodo zaradi njene uporabe. Podrobnosti so v README in v licenci."
  ],
  "sq": [
   "Më vonë",
@@ -711,7 +752,8 @@
   "Kodi burimor",
   "Licenca",
   "Version prove",
-  "Ky desktop në distancë bazohet në RustDesk (github.com/rustdesk/rustdesk) dhe ndryshohet nga Vladyslav Pereverzyev që nga nëntori 2026. Shpërndahet me licencën GNU Affero General Public License versioni 3. RustDesk është markë e pronarëve të saj; ky aplikacion nuk është i lidhur me projektin RustDesk dhe nuk miratohet prej tij."
+  "Ky desktop në distancë bazohet në RustDesk (github.com/rustdesk/rustdesk) dhe ndryshohet nga Vladyslav Pereverzyev që nga nëntori 2026. Shpërndahet me licencën GNU Affero General Public License versioni 3. RustDesk është markë e pronarëve të saj; ky aplikacion nuk është i lidhur me projektin RustDesk dhe nuk miratohet prej tij.",
+  "Aplikacioni është softuer i lirë dhe ofrohet ashtu siç është, pa asnjë garanci. Për aq sa e lejon ligji, Vladyslav Pereverzyev nuk mban përgjegjësi për asnjë dëm që vjen nga përdorimi i tij. Hollësitë janë te README dhe te licenca."
  ],
  "sr": [
   "Kasnije",
@@ -728,7 +770,8 @@
   "Izvorni kod",
   "Licenca",
   "Probna verzija",
-  "Ova udaljena radna površina zasnovana je na RustDesku (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev je menja od novembra 2026. Objavljena je pod licencom GNU Affero General Public License verzije 3. RustDesk je zaštitni znak svojih vlasnika; ova aplikacija nije povezana sa projektom RustDesk niti ju je on odobrio."
+  "Ova udaljena radna površina zasnovana je na RustDesku (github.com/rustdesk/rustdesk) i Vladyslav Pereverzyev je menja od novembra 2026. Objavljena je pod licencom GNU Affero General Public License verzije 3. RustDesk je zaštitni znak svojih vlasnika; ova aplikacija nije povezana sa projektom RustDesk niti ju je on odobrio.",
+  "Aplikacija je slobodan softver i isporučuje se takva kakva jeste, bez ikakve garancije. U meri u kojoj zakon dozvoljava, Vladyslav Pereverzyev ne odgovara ni za kakvu štetu nastalu njenom upotrebom. Detalji su u README-u i u licenci."
  ],
  "sv": [
   "Senare",
@@ -745,7 +788,8 @@
   "Källkod",
   "Licens",
   "Testversion",
-  "Det här fjärrskrivbordet bygger på RustDesk (github.com/rustdesk/rustdesk) och ändras av Vladyslav Pereverzyev sedan november 2026. Det ges ut under GNU Affero General Public License version 3. RustDesk är ett varumärke som tillhör dess ägare; den här appen är inte knuten till eller godkänd av RustDesk-projektet."
+  "Det här fjärrskrivbordet bygger på RustDesk (github.com/rustdesk/rustdesk) och ändras av Vladyslav Pereverzyev sedan november 2026. Det ges ut under GNU Affero General Public License version 3. RustDesk är ett varumärke som tillhör dess ägare; den här appen är inte knuten till eller godkänd av RustDesk-projektet.",
+  "Appen är fri programvara och tillhandahålls i befintligt skick, utan någon garanti. I den mån lagen tillåter är Vladyslav Pereverzyev inte ansvarig för skador som uppstår genom användningen. Detaljerna finns i README och i licensen."
  ],
  "ta": [
   "பிறகு",
@@ -762,7 +806,8 @@
   "மூலக் குறியீடு",
   "உரிமம்",
   "சோதனைப் பதிப்பு",
-  "இந்த ரிமோட் டெஸ்க்டாப் RustDesk (github.com/rustdesk/rustdesk) அடிப்படையிலானது, நவம்பர் 2026 முதல் Vladyslav Pereverzyev இதை மாற்றி வருகிறார். இது GNU Affero General Public License பதிப்பு 3 இன் கீழ் வெளியிடப்படுகிறது. RustDesk அதன் உரிமையாளர்களின் வர்த்தக முத்திரை; இந்த செயலி RustDesk திட்டத்துடன் இணைக்கப்படவில்லை, அதனால் அங்கீகரிக்கப்படவும் இல்லை."
+  "இந்த ரிமோட் டெஸ்க்டாப் RustDesk (github.com/rustdesk/rustdesk) அடிப்படையிலானது, நவம்பர் 2026 முதல் Vladyslav Pereverzyev இதை மாற்றி வருகிறார். இது GNU Affero General Public License பதிப்பு 3 இன் கீழ் வெளியிடப்படுகிறது. RustDesk அதன் உரிமையாளர்களின் வர்த்தக முத்திரை; இந்த செயலி RustDesk திட்டத்துடன் இணைக்கப்படவில்லை, அதனால் அங்கீகரிக்கப்படவும் இல்லை.",
+  "இந்த செயலி கட்டற்ற மென்பொருள்; எந்த உத்தரவாதமும் இன்றி உள்ளபடியே வழங்கப்படுகிறது. சட்டம் அனுமதிக்கும் அளவிற்கு, இதன் பயன்பாட்டால் ஏற்படும் எந்த இழப்பிற்கும் Vladyslav Pereverzyev பொறுப்பல்ல. விவரங்கள் README மற்றும் உரிமத்தில் உள்ளன."
  ],
  "th": [
   "ภายหลัง",
@@ -779,7 +824,8 @@
   "ซอร์สโค้ด",
   "สัญญาอนุญาต",
   "รุ่นทดสอบ",
-  "รีโมตเดสก์ท็อปนี้พัฒนาจาก RustDesk (github.com/rustdesk/rustdesk) และ Vladyslav Pereverzyev แก้ไขตั้งแต่เดือนพฤศจิกายน 2026 เผยแพร่ภายใต้สัญญาอนุญาต GNU Affero General Public License รุ่น 3 RustDesk เป็นเครื่องหมายการค้าของเจ้าของ แอปนี้ไม่ได้เกี่ยวข้องกับโครงการ RustDesk และไม่ได้รับการรับรองจากโครงการ"
+  "รีโมตเดสก์ท็อปนี้พัฒนาจาก RustDesk (github.com/rustdesk/rustdesk) และ Vladyslav Pereverzyev แก้ไขตั้งแต่เดือนพฤศจิกายน 2026 เผยแพร่ภายใต้สัญญาอนุญาต GNU Affero General Public License รุ่น 3 RustDesk เป็นเครื่องหมายการค้าของเจ้าของ แอปนี้ไม่ได้เกี่ยวข้องกับโครงการ RustDesk และไม่ได้รับการรับรองจากโครงการ",
+  "แอปนี้เป็นซอฟต์แวร์เสรีและให้มาตามสภาพ โดยไม่มีการรับประกันใด ๆ เท่าที่กฎหมายอนุญาต Vladyslav Pereverzyev ไม่รับผิดชอบต่อความเสียหายใด ๆ ที่เกิดจากการใช้งาน รายละเอียดอยู่ใน README และในสัญญาอนุญาต"
  ],
  "tr": [
   "Daha sonra",
@@ -796,7 +842,8 @@
   "Kaynak kodu",
   "Lisans",
   "Deneme sürümü",
-  "Bu uzak masaüstü RustDesk tabanlıdır (github.com/rustdesk/rustdesk) ve Kasım 2026'dan beri Vladyslav Pereverzyev tarafından değiştirilmektedir. GNU Affero General Public License sürüm 3 lisansıyla dağıtılır. RustDesk sahiplerinin ticari markasıdır; bu uygulama RustDesk projesiyle bağlantılı değildir ve proje tarafından onaylanmamıştır."
+  "Bu uzak masaüstü RustDesk tabanlıdır (github.com/rustdesk/rustdesk) ve Kasım 2026'dan beri Vladyslav Pereverzyev tarafından değiştirilmektedir. GNU Affero General Public License sürüm 3 lisansıyla dağıtılır. RustDesk sahiplerinin ticari markasıdır; bu uygulama RustDesk projesiyle bağlantılı değildir ve proje tarafından onaylanmamıştır.",
+  "Uygulama özgür yazılımdır ve hiçbir garanti olmadan olduğu gibi sunulur. Yasanın izin verdiği ölçüde Vladyslav Pereverzyev, kullanımından doğan hiçbir zarardan sorumlu değildir. Ayrıntılar README dosyasında ve lisansta yer alır."
  ],
  "tw": [
   "稍後",
@@ -813,7 +860,8 @@
   "原始碼",
   "授權",
   "測試版",
-  "此遠端桌面以 RustDesk (github.com/rustdesk/rustdesk) 為基礎，自 2026 年 11 月起由 Vladyslav Pereverzyev 修改。它以 GNU Affero General Public License 第 3 版發佈。RustDesk 是其所有者的商標；本應用程式與 RustDesk 專案無關，也未獲得其認可。"
+  "此遠端桌面以 RustDesk (github.com/rustdesk/rustdesk) 為基礎，自 2026 年 11 月起由 Vladyslav Pereverzyev 修改。它以 GNU Affero General Public License 第 3 版發佈。RustDesk 是其所有者的商標；本應用程式與 RustDesk 專案無關，也未獲得其認可。",
+  "本應用程式為自由軟體，依現狀提供，不附帶任何擔保。在法律允許的範圍內，Vladyslav Pereverzyev 不對因使用本應用程式造成的任何損害負責。詳情請見 README 與授權條款。"
  ],
  "uk": [
   "Пізніше",
@@ -830,7 +878,8 @@
   "Вихідний код",
   "Ліцензія",
   "Тестова версія",
-  "Цей віддалений робочий стіл базується на RustDesk (github.com/rustdesk/rustdesk) і змінюється Vladyslav Pereverzyev з листопада 2026 року. Він поширюється за ліцензією GNU Affero General Public License версії 3. RustDesk є торговельною маркою своїх власників; цей застосунок не пов'язаний з проєктом RustDesk і не схвалений ним."
+  "Цей віддалений робочий стіл базується на RustDesk (github.com/rustdesk/rustdesk) і змінюється Vladyslav Pereverzyev з листопада 2026 року. Він поширюється за ліцензією GNU Affero General Public License версії 3. RustDesk є торговельною маркою своїх власників; цей застосунок не пов'язаний з проєктом RustDesk і не схвалений ним.",
+  "Застосунок є вільним програмним забезпеченням і надається як є, без жодних гарантій. У межах, дозволених законом, Vladyslav Pereverzyev не несе відповідальності за будь-яку шкоду від його використання. Подробиці в README та в ліцензії."
  ],
  "ur": [
   "بعد میں",
@@ -847,7 +896,8 @@
   "سورس کوڈ",
   "لائسنس",
   "آزمائشی ورژن",
-  "یہ ریموٹ ڈیسک ٹاپ RustDesk (github.com/rustdesk/rustdesk) پر مبنی ہے اور نومبر 2026 سے Vladyslav Pereverzyev اس میں تبدیلیاں کر رہے ہیں۔ یہ GNU Affero General Public License ورژن 3 کے تحت جاری کیا جاتا ہے۔ RustDesk اپنے مالکان کا ٹریڈ مارک ہے؛ یہ ایپ RustDesk پروجیکٹ سے وابستہ نہیں اور اس سے منظور شدہ نہیں ہے۔"
+  "یہ ریموٹ ڈیسک ٹاپ RustDesk (github.com/rustdesk/rustdesk) پر مبنی ہے اور نومبر 2026 سے Vladyslav Pereverzyev اس میں تبدیلیاں کر رہے ہیں۔ یہ GNU Affero General Public License ورژن 3 کے تحت جاری کیا جاتا ہے۔ RustDesk اپنے مالکان کا ٹریڈ مارک ہے؛ یہ ایپ RustDesk پروجیکٹ سے وابستہ نہیں اور اس سے منظور شدہ نہیں ہے۔",
+  "یہ ایپ آزاد سافٹ ویئر ہے اور جیسی ہے ویسی، بغیر کسی ضمانت کے فراہم کی جاتی ہے۔ جہاں تک قانون اجازت دیتا ہے، Vladyslav Pereverzyev اس کے استعمال سے ہونے والے کسی نقصان کا ذمہ دار نہیں ہے۔ تفصیلات README اور لائسنس میں ہیں۔"
  ],
  "vi": [
   "Để sau",
@@ -864,6 +914,7 @@
   "Mã nguồn",
   "Giấy phép",
   "Bản thử nghiệm",
-  "Phần mềm điều khiển từ xa này dựa trên RustDesk (github.com/rustdesk/rustdesk) và được Vladyslav Pereverzyev sửa đổi từ tháng 11 năm 2026. Phần mềm được phát hành theo giấy phép GNU Affero General Public License phiên bản 3. RustDesk là nhãn hiệu của chủ sở hữu; ứng dụng này không liên kết với dự án RustDesk và không được dự án chấp thuận."
+  "Phần mềm điều khiển từ xa này dựa trên RustDesk (github.com/rustdesk/rustdesk) và được Vladyslav Pereverzyev sửa đổi từ tháng 11 năm 2026. Phần mềm được phát hành theo giấy phép GNU Affero General Public License phiên bản 3. RustDesk là nhãn hiệu của chủ sở hữu; ứng dụng này không liên kết với dự án RustDesk và không được dự án chấp thuận.",
+  "Ứng dụng là phần mềm tự do và được cung cấp nguyên trạng, không kèm bất kỳ bảo đảm nào. Trong phạm vi pháp luật cho phép, Vladyslav Pereverzyev không chịu trách nhiệm về bất kỳ thiệt hại nào phát sinh từ việc sử dụng. Chi tiết có trong README và trong giấy phép."
  ]
 }

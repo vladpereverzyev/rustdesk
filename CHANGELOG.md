@@ -5,6 +5,11 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.2 (2026-11-19)
+
+- About: a line says that the app comes as it is, without warranty, and points to the README
+  and the licence for the details. It is translated into every language of the app.
+
 ## 1.0.1 (2026-11-19)
 
 - Settings: the Stop button of the Service card and the Change ID button sit on the same line
