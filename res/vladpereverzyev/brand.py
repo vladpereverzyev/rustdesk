@@ -1813,7 +1813,7 @@ class _CmStatusLineState extends State<_CmStatusLine> {
         const Divider(height: 1, thickness: 1),
         Container(
           decoration: const BoxDecoration(gradient: _kCmGradient),
-          padding: const EdgeInsets.only(left: 7, top: 8, bottom: 14, right: 20),
+          padding: const EdgeInsets.only(left: 7, top: 11, bottom: 11, right: 20),
           child: SizedBox(
             height: 24,
             child: Row(
