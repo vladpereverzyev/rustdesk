@@ -76,7 +76,10 @@ LOGO_MAX = (300, 60)  # loadLogo() in flutter/lib/common.dart shows at most 300 
 def replace_once(path, old, new):
     file = ROOT / path
     text = file.read_text(encoding="utf-8")
-    if new in text and old not in text:
+    # A non-empty replacement already in place means the patch ran before (idempotent re-run).
+    # A removal (empty new) has no such marker, so it must always find its target or fail loudly,
+    # never skip in silence.
+    if new and new in text and old not in text:
         print(f"already branded: {path}")
         return
     if text.count(old) != 1:
@@ -912,7 +915,6 @@ def updates():
                  "          child: OnlineStatusWidget(")
     replace_once(home, "        ).marginOnly(bottom: 6, right: 6)\n      ]);",
                  "        ),\n        ),\n      ]);")
-    replace_once(home, "      ).marginAll(14);", "      ).marginSymmetric(horizontal: 20, vertical: 14);")
     # 300 instead of 280, so the name in the title bar keeps some air before the buttons.
     replace_once(home, "width: isIncomingOnly ? 280.0 : 200.0,", "width: isIncomingOnly ? 300.0 : 200.0,")
     # RustDesk adds 11 to the width for the window border; Windows 10 takes 14, so the last 3
@@ -2039,9 +2041,10 @@ def connection_window():
 
 def remove_quit_button():
     # The incoming-only home shows a Quit button at the bottom right. The window closes from
-    # the title bar, so the button is redundant.
-    replace_once(
-        "flutter/lib/desktop/pages/desktop_home_page.dart",
+    # the title bar, so the button is redundant. This removal fails the build if the block is
+    # no longer found, so a mismatch never silently leaves the button in.
+    home = "flutter/lib/desktop/pages/desktop_home_page.dart"
+    block = (
         "    if (bind.isIncomingOnly()) {\n"
         "      final quitButtonText =\n"
         "          bind.mainGetBuildinOption(key: kOptionQuitButtonText).trim();\n"
@@ -2058,9 +2061,14 @@ def remove_quit_button():
         "          child: Text(quitButtonText.isEmpty ? translate('Quit') : quitButtonText),\n"
         "        ),\n"
         "      ).marginAll(14);\n"
-        "    }\n",
-        "",
+        "    }\n"
     )
+    file = ROOT / home
+    text = file.read_text(encoding="utf-8")
+    if text.count(block) != 1:
+        sys.exit(f"quit button block not found in {home}")
+    file.write_text(text.replace(block, "", 1), encoding="utf-8")
+    print(f"patched: {home}")
 
 
 def main():
