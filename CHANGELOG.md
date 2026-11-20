@@ -5,6 +5,10 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.6 (2026-11-20)
+
+- The home window leaves the same space below the one-time password as above the logo.
+
 ## 1.0.5 (2026-11-20)
 
 - The home window no longer shows the Quit button. A build-time patch collision had kept it in 1.0.4; the branding script now fails the build if a removal no longer matches, so a removed button cannot silently come back.

@@ -909,6 +909,7 @@ def updates():
             "end: Alignment.centerRight, colors: [Color.fromARGB(255, 1, 30, 46), "
             "Color.fromARGB(255, 6, 48, 73)]))")
     replace_once(home, "        Divider(),\n        OnlineStatusWidget(",
+                 "        SizedBox(height: 40),\n"
                  "        Divider(height: 1, thickness: 1),\n"
                  f"        Container(\n          decoration: {band},\n"
                  "          padding: EdgeInsets.only(left: 7, top: 11, bottom: 11, right: 20),\n"
