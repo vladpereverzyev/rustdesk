@@ -36,12 +36,21 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
   computer: give them to the person who helps you. One click on the ID or the password copies
   it.
 - To reach a computer when nobody sits in front of it, install the app on it (the Install button
-  at the bottom) and set a permanent password with the pencil next to the password.
+  at the bottom of the window, shown while the app runs from the download) and set a permanent
+  password with the pencil next to the password.
+- When somebody connects, a window of the same size shows their ID and what the session may do:
+  keyboard and mouse, clipboard, sound, files and so on. Accept lets them in, Cancel sends them
+  away. During the session the same window shows how long it has been running, a chat and the
+  Disconnect button, which ends it at any moment.
 
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
 ![The Security page: permissions, password, two-factor authentication and ID](docs/images/security.png)
+
+Once the app is installed, the Security and Network pages are locked, so that only somebody who
+may change the computer can change them: the blue button at the top of the page asks Windows
+for the permission first.
 
 Allow a connection only to people you know. Somebody who has the ID and the password can see the
 screen, use the mouse and open the files of that computer.
@@ -53,9 +62,8 @@ of this repository:
 
 1. When it starts, the app asks GitHub for the latest release and compares its number with its
    own.
-2. When a newer release is out, a window asks whether to update now or later. A card in the
-   main window stays, with a link to what changed, for those who chose later.
-
+2. When a newer release is out, a window says so, with the new version number and two buttons:
+   Later and Update.
 3. Nothing is downloaded or installed until the user presses Update: there is no automatic
    update. The app then downloads the new `VladyslavPereverzyev.exe` with a progress bar, installs
    it over the old one once no session is open and starts again. Windows may ask for
@@ -117,7 +125,7 @@ This section explains how the app works. It is not legal advice.
 The About page of the app says the same in short, with the version and the links to the source
 code and the licence.
 
-![The About page: how to use it, updates, network and privacy, links and licence](docs/images/about.png)
+![The About page: what it is for, how to use it, updates, network and privacy, links and licence](docs/images/about.png)
 
 ## What is in it
 
