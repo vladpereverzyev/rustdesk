@@ -43,6 +43,8 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
   away. During the session the same window shows how long it has been running, a chat and the
   Disconnect button, which ends it at any moment.
 
+![The window that asks to let a session in with Accept and Cancel next to the same window during the session with the chat open and the Disconnect button](docs/images/connection.png)
+
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
