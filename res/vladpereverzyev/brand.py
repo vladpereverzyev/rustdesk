@@ -2072,6 +2072,42 @@ def remove_quit_button():
     print(f"patched: {home}")
 
 
+def activate_only_when_open():
+    # The app is reachable only while its window is open. At install the service is left stopped,
+    # the app turns it on when the window opens and off again, closing the app, when the user
+    # closes the window. The tray icon is no longer added to the Windows startup folder, so
+    # nothing of it starts at boot.
+    replace_once(
+        "src/platform/windows.rs",
+        "    let _installing = crate::platform::InstallingService::new();\n"
+        "    let (_, path, _, exe) = get_install_info();\n"
+        "    Config::set_option(\"stop-service\".into(), \"\".into());",
+        "    let _installing = crate::platform::InstallingService::new();\n"
+        "    let (_, path, _, exe) = get_install_info();\n"
+        "    Config::set_option(\"stop-service\".into(), \"Y\".into());",
+    )
+    replace_once(
+        "flutter/lib/main.dart",
+        "    gFFI.serverModel.startService();",
+        "    gFFI.serverModel.startService();\n    start_service(true);",
+    )
+    replace_once(
+        "flutter/lib/desktop/widgets/tabbar_widget.dart",
+        "    mainWindowClose() async => await windowManager.hide();",
+        "    mainWindowClose() async {\n"
+        "      if (bind.isIncomingOnly()) {\n"
+        "        await start_service(false);\n"
+        "        await windowManager.destroy();\n"
+        "      } else {\n"
+        "        await windowManager.hide();\n"
+        "      }\n"
+        "    }",
+    )
+    win = "src/platform/windows.rs"
+    sub_once(win, r"copy /Y [^\n]*\{tmp_path\}[^\n]*Tray\.lnk[^\n]*Startup[^\n]*\n", lambda _: "")
+    sub_once(win, r"copy /Y [^\n]*%RUSTDESK_OUTPUT_DIR%[^\n]*Tray\.lnk[^\n]*Startup[^\n]*\n", lambda _: "")
+
+
 def main():
     replace_once(
         "libs/hbb_common/src/config.rs",
@@ -2206,6 +2242,7 @@ def main():
     connection_window()
     no_update_card()
     remove_quit_button()
+    activate_only_when_open()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")

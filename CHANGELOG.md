@@ -5,6 +5,11 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.7 (2026-11-24)
+
+- The computer is reachable only while the window is open. The app turns itself on when you open the window and off when you close it, so it does not sit reachable in the background. At boot it stays off and adds nothing to the Windows startup folder.
+- Closing the window from the title bar now closes the app, instead of hiding it.
+
 ## 1.0.6 (2026-11-20)
 
 - The home window leaves the same space below the one-time password as above the logo.

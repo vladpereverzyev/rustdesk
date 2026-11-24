@@ -45,6 +45,10 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 
 ![The window that asks to let a session in with Accept and Cancel next to the same window during the session with the chat open and the Disconnect button](docs/images/connection.png)
 
+The computer is reachable only while the window is open. The app turns on when you open it and
+off when you close it, so nobody can reach the computer when the app is closed, not even right
+after Windows starts. Closing the window from the title bar closes the app.
+
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
