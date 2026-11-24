@@ -35,9 +35,8 @@ The download needs no installation: it runs as it is. It can be renamed, for exa
 - Open `VladyslavPereverzyev.exe`. The window shows the ID and a one-time password of this
   computer: give them to the person who helps you. One click on the ID or the password copies
   it.
-- To reach a computer when nobody sits in front of it, install the app on it (the Install button
-  at the bottom of the window, shown while the app runs from the download) and set a permanent
-  password with the pencil next to the password.
+- The password changes at every start. To keep the same one, set a permanent password with the
+  pencil next to it. Either way the computer stays reachable only while the window is open.
 - When somebody connects, a window of the same size shows their ID and what the session may do:
   keyboard and mouse, clipboard, sound, files and so on. Accept lets them in, Cancel sends them
   away. During the session the same window shows how long it has been running, a chat and the
@@ -49,14 +48,14 @@ The computer can be reached only while the window is open. It is not reachable i
 or right after Windows starts: it becomes reachable when you open the app and stops being
 reachable when you close the window. Closing the window from the title bar closes the app.
 
+The app does not install itself: it has no Windows service and runs only from the exe. To let the
+helper work with a window that Windows protects with a UAC prompt, open the app with Run as
+administrator (right click the exe, then "Run as administrator").
+
 The window always keeps the same small size. The menu button at the top opens the settings in
 the same window, as a list of pages with a back arrow.
 
 ![The Security page: permissions, password, two-factor authentication and ID](docs/images/security.png)
-
-Once the app is installed, the Security and Network pages are locked, so that only somebody who
-may change the computer can change them: the blue button at the top of the page asks Windows
-for the permission first.
 
 Allow a connection only to people you know. Somebody who has the ID and the password can see the
 screen, use the mouse and open the files of that computer.
@@ -104,8 +103,8 @@ and cannot take control of one. To help somebody, I use the RustDesk app.
 A customer who already has RustDesk does not need to install anything else. I can also help a
 customer from my phone with the RustDesk app.
 
-Each program has its own ID. A computer with both RustDesk and this app installed has two IDs,
-one for each program.
+Each program has its own ID. A computer that runs both RustDesk and this app has two IDs, one for
+each program.
 
 ## Privacy
 
@@ -145,9 +144,9 @@ This branch keeps the RustDesk code as it is. My changes live in a few places:
 - `.github/workflows/build.yml` builds the Windows x64 exe on every push to this branch and
   publishes a release for every `v*` tag.
 
-The technical name of the app is `vladpereverzyev`: Windows uses it for the exe, the service
-and the install folder, because RustDesk allows only letters there. Everything people read, from
-the window title and the shortcuts to the list of installed apps, says Vladyslav Pereverzyev.
+The technical name of the app is `vladpereverzyev`: Windows uses it for the exe and the folder the
+download unpacks into, because RustDesk allows only letters there. Everything people read, starting
+from the window title, says Vladyslav Pereverzyev.
 
 The `master` branch follows [rustdesk/rustdesk](https://github.com/rustdesk/rustdesk). New
 RustDesk versions are merged from `master` into `vladpereverzyev`.

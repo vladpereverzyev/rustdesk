@@ -5,6 +5,12 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.8 (2026-11-24)
+
+- The app no longer installs itself on Windows. In 1.0.7 the installed service kept reopening the window in a loop, right after the install and at every boot. Now there is no service and no Install button, so this cannot happen.
+- The computer is reachable only while the window is open. The server runs inside the window, so closing it from the title bar quits the app and stops the server with it. Nothing runs at boot or in the background.
+- To help with a window that Windows protects with a UAC prompt, start the app with Run as administrator. Without a system service it can reach those windows only when it runs as administrator.
+
 ## 1.0.7 (2026-11-24)
 
 - The computer is reachable only while the window is open. The app turns itself on when you open the window and off when you close it, so it does not sit reachable in the background. At boot it stays off and adds nothing to the Windows startup folder.
