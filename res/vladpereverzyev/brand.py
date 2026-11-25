@@ -1977,6 +1977,10 @@ def connection_window():
     server = "flutter/lib/desktop/pages/server_page.dart"
     replace_once(server, "import 'package:flutter_hbb/consts.dart';\n",
                  "import 'package:flutter_hbb/consts.dart';\nimport 'package:flutter_hbb/common/formatter/id_formatter.dart';\n")
+    # The window keeps the name alone, with no peer id, so the title bar and the taskbar read
+    # "Vladyslav Pereverzyev" the whole time a session is open.
+    replace_once(server, "          windowManager.setTitle(getWindowNameWithId(client.peerId));\n",
+                 f"          windowManager.setTitle('{DISPLAY_NAME}');\n")
     replace_once(server, "              showTitle: false,\n              showMaximize: false,",
                  "              showTitle: true,\n              showMaximize: false,")
     replace_once(server, "              selectedBorderColor: MyTheme.accent,\n              maxLabelWidth: 100,",
