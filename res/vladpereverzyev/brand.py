@@ -2142,6 +2142,8 @@ def screen_border():
     hook = (
         "            #[cfg(windows)]\n"
         "            crate::vladpereverzyev_screen_border::set_active(Self::non_port_forward_conn_count() > 0);\n"
+        "            #[cfg(windows)]\n"
+        "            crate::vladpereverzyev_single_window::set_connected(Self::non_port_forward_conn_count() > 0);\n"
     )
     # Switch the frame on when a connection authorizes.
     replace_once(
@@ -2154,6 +2156,27 @@ def screen_border():
         "src/server/connection.rs",
         "            AUTHED_CONNS.lock().unwrap().retain(|c| c.conn_id != self.0);\n",
         "            AUTHED_CONNS.lock().unwrap().retain(|c| c.conn_id != self.0);\n" + hook,
+    )
+
+
+def single_window():
+    # One window on screen: the home window hides while someone is connected (only the connection
+    # manager stays) and comes back when the last connection ends. A new native module hides and
+    # shows the home window; it is driven from the same connection hooks as the screen frame (added
+    # in screen_border above), so here only the module, its declaration and one winapi feature.
+    shutil.copyfile(HERE / "single_window.rs", ROOT / "src/vladpereverzyev_single_window.rs")
+    print("copied: src/vladpereverzyev_single_window.rs")
+    replace_once(
+        "src/lib.rs",
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_screen_border;\n',
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_screen_border;\n'
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_single_window;\n',
+    )
+    # EnumWindows and GetWindowThreadProcessId (winuser, already on) plus GetCurrentProcessId.
+    replace_once(
+        "Cargo.toml",
+        'winapi = { version = "0.3", features = [\n    "winuser",\n    "wingdi",\n    "libloaderapi",\n',
+        'winapi = { version = "0.3", features = [\n    "winuser",\n    "wingdi",\n    "libloaderapi",\n    "processthreadsapi",\n',
     )
 
 
@@ -2293,6 +2316,7 @@ def main():
     remove_quit_button()
     reachable_only_while_open()
     screen_border()
+    single_window()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
