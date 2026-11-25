@@ -1968,9 +1968,9 @@ def connection_window():
     # with the azure line, grey icons, the pills and the status line on the gradient. The account
     # name of the other side (often an e-mail address) is never shown.
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeClosedChat = Size(300, 490);",
-                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 631);")
+                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 595);")
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeOpenChat = Size(700, 490);",
-                 "const Size kConnectionManagerWindowSizeOpenChat = Size(714, 631);")
+                 "const Size kConnectionManagerWindowSizeOpenChat = Size(714, 595);")
     replace_once("flutter/lib/models/server_model.dart", "        label: client.name,\n",
                  f"        label: '{DISPLAY_NAME}',\n")
 
@@ -2013,12 +2013,18 @@ def connection_window():
                  "                  size: 20,\n                ),")
     sub_once(server, r"    Widget textWidget;\n    if \(icon != null\) \{.*?        \.marginAll\(4\);\n  \}",
              lambda _: CM_BUTTON.replace("@BUTTON_TEXT@", BUTTON_TEXT).replace("@ICON@", ICON))
-    # A single action is a pill of the width of Install, centred, as on the home window.
-    replace_once(server, "        Row(\n          children: [\n            Expanded(\n              child: buildButton(context,\n"
-                         "                  color: Colors.redAccent,",
-                 "        Row(\n          mainAxisAlignment: MainAxisAlignment.center,\n          children: [\n"
-                 "            SizedBox(\n              width: 158,\n              child: buildButton(context,\n"
-                 "                  color: Colors.redAccent,")
+    # The connected session shows no Disconnect button: the title-bar close (its X) already ends
+    # the session, so the button would only repeat it, and the window is shorter without it.
+    replace_once(
+        server,
+        "        Row(\n          children: [\n            Expanded(\n              child: buildButton(context,\n"
+        "                  color: Colors.redAccent,\n                  onClick: handleDisconnect,\n"
+        "                  text: 'Disconnect',\n                  icon: Icon(\n"
+        "                    Icons.link_off_rounded,\n                    color: Colors.white,\n"
+        "                    size: 14,\n                  ),\n                  textColor: Colors.white),\n"
+        "            ),\n          ],\n        )\n",
+        "        const SizedBox.shrink()\n",
+    )
     replace_once(server, "        Expanded(\n            child: buildButton(context,\n                color: MyTheme.accent,\n"
                          "                onClick: handleClose,",
                  "        SizedBox(\n            width: 158,\n            child: buildButton(context,\n"
