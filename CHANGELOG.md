@@ -5,6 +5,11 @@ version are on the [releases page](https://github.com/vladpereverzyev/rustdesk/r
 changes to the remote desktop itself are in the
 [RustDesk releases](https://github.com/rustdesk/rustdesk/releases).
 
+## 1.0.9 (2026-11-25)
+
+- A red frame appears around the screen while someone is connected to this computer, so you can tell at a glance that a remote session is open, even when the connection window is hidden behind other windows. It stays on top of everything, the mouse passes through it, and it disappears when the last session closes.
+- Closed a loose end from the no-install change. The `--install-service` command, if someone typed it by hand in an administrator console, still created a Windows service and a startup entry. Both pointed at an install folder that does not exist without an install, so the service never started, but now the command does nothing at all while installation is off.
+
 ## 1.0.8 (2026-11-24)
 
 - The app no longer installs itself on Windows. In 1.0.7 the installed service kept reopening the window in a loop, right after the install and at every boot. Now there is no service and no Install button, so this cannot happen.

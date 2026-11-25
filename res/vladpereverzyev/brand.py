@@ -2086,6 +2086,22 @@ def reachable_only_while_open():
         "    true\n"
         "}",
     )
+    # --install-service is not reachable from the window; typed by hand in an admin console it
+    # created a service and an autostart entry that pointed at the install folder, which does not
+    # exist without an install, so it never started. With installation disabled it now does nothing.
+    replace_once(
+        "src/core_main.rs",
+        '        } else if args[0] == "--install-service" {\n'
+        '            log::info!("start --install-service");\n'
+        "            crate::platform::install_service();\n"
+        "            return None;\n",
+        '        } else if args[0] == "--install-service" {\n'
+        '            log::info!("start --install-service");\n'
+        "            if !config::is_disable_installation() {\n"
+        "                crate::platform::install_service();\n"
+        "            }\n"
+        "            return None;\n",
+    )
     replace_once(
         "flutter/lib/desktop/widgets/tabbar_widget.dart",
         "import 'dart:async';\n",
@@ -2101,6 +2117,43 @@ def reachable_only_while_open():
         "        await windowManager.hide();\n"
         "      }\n"
         "    }",
+    )
+
+
+def screen_border():
+    # A red frame around the screen while someone who can see this computer is connected, so the
+    # person at the keyboard notices a remote session even when the connection-manager window is
+    # hidden. A new native module draws the overlay; two thin hooks in the connection lifecycle
+    # switch it on with the first such connection and off with the last.
+    shutil.copyfile(HERE / "screen_border.rs", ROOT / "src/vladpereverzyev_screen_border.rs")
+    print("copied: src/vladpereverzyev_screen_border.rs")
+    replace_once(
+        "src/lib.rs",
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_update;\n',
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_update;\n'
+        '#[cfg(target_os = "windows")]\nmod vladpereverzyev_screen_border;\n',
+    )
+    # The overlay paints a solid colour (wingdi) and finds its own module handle (libloaderapi).
+    replace_once(
+        "Cargo.toml",
+        'winapi = { version = "0.3", features = [\n    "winuser",\n',
+        'winapi = { version = "0.3", features = [\n    "winuser",\n    "wingdi",\n    "libloaderapi",\n',
+    )
+    hook = (
+        "            #[cfg(windows)]\n"
+        "            crate::vladpereverzyev_screen_border::set_active(Self::non_port_forward_conn_count() > 0);\n"
+    )
+    # Switch the frame on when a connection authorizes.
+    replace_once(
+        "src/server/connection.rs",
+        "            Self::check_wake_lock();\n            use std::sync::Once;\n",
+        "            Self::check_wake_lock();\n" + hook + "            use std::sync::Once;\n",
+    )
+    # Switch it off (or keep it on for another session) when one closes.
+    replace_once(
+        "src/server/connection.rs",
+        "            AUTHED_CONNS.lock().unwrap().retain(|c| c.conn_id != self.0);\n",
+        "            AUTHED_CONNS.lock().unwrap().retain(|c| c.conn_id != self.0);\n" + hook,
     )
 
 
@@ -2239,6 +2292,7 @@ def main():
     no_update_card()
     remove_quit_button()
     reachable_only_while_open()
+    screen_border()
 
     save_ico("res/icon.ico")
     save_ico("res/tray-icon.ico")
