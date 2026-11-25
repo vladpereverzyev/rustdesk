@@ -1899,14 +1899,12 @@ CM_HEADER_BUILD = """  Widget build(BuildContext context) {
             ],
           ),
         ),
-        _cmBoard(
-          label: translate("ID"),
-          action: showChat ? chat : null,
-          height: 57,
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0, right: 20, top: 2, bottom: 12),
           child: Text(
-            formatID(client.peerId),
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
-          ).marginOnly(top: 6),
+            'Vladyslav Pereverzyev',
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.white),
+          ),
         ),
       ],
     );
