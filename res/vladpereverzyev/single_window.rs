@@ -1,11 +1,17 @@
-// One window on screen, in one place. While someone is connected the connection manager is shown,
-// so the home window steps aside, and it comes back when the last connection ends. The home window
-// is only hidden (never closed), so the process stays alive and reachable while a session is open.
-// To make it read as a swap and not a window jumping elsewhere, the connection manager (which runs
-// in its own process) is moved to where the home window was. Driven by the connection lifecycle
-// hooks in src/server/connection.rs. Any failure is swallowed so it can never break a connection.
+// One window on screen, in one place. While the connection manager is up (from the moment a peer
+// starts connecting, not only once it is let in), the home window steps aside, and it comes back
+// when the manager closes. A monitor thread keeps this true by watching for the manager window,
+// instead of tying it to the moment a session authorizes, so the two windows are never shown side
+// by side during the connect handshake.
+//
+// The home window is only hidden (never closed), so the process stays alive and reachable while a
+// session is open. The connection manager runs in its own process, so it is found by title across
+// the process boundary and, when it first appears, moved onto the home window's spot. Started from
+// the connection hook in src/server/connection.rs. Any failure is swallowed, so it can never break
+// a connection.
 
 use std::ptr::null_mut;
+use std::sync::atomic::{AtomicBool, AtomicI64, Ordering};
 use std::time::Duration;
 
 use winapi::{
@@ -24,6 +30,85 @@ use winapi::{
 };
 
 const TITLE: &str = "Vladyslav Pereverzyev";
+
+static MONITOR: AtomicBool = AtomicBool::new(false);
+static CM_SHOWN: AtomicBool = AtomicBool::new(false);
+static HOME_CENTRE: AtomicI64 = AtomicI64::new(0); // packed: (x << 32) | (y as u32)
+
+/// Start the monitor the first time a peer begins connecting; it runs for the life of the app.
+pub fn ensure_monitor() {
+    if MONITOR.swap(true, Ordering::SeqCst) {
+        return;
+    }
+    std::thread::spawn(|| unsafe {
+        let pid = GetCurrentProcessId();
+        loop {
+            tick(pid);
+            std::thread::sleep(Duration::from_millis(150));
+        }
+    });
+}
+
+unsafe fn tick(pid: DWORD) {
+    let home = match find(Search {
+        pid,
+        other_process: false,
+        require_visible: false,
+        hwnd: None,
+    }) {
+        Some(h) => h,
+        None => return,
+    };
+    let home_visible = IsWindowVisible(home) != 0;
+    if home_visible {
+        // Remember where the home window is, to drop the connection manager onto the same spot.
+        let mut r: RECT = std::mem::zeroed();
+        GetWindowRect(home, &mut r);
+        let cx = (r.left + r.right) / 2;
+        let cy = (r.top + r.bottom) / 2;
+        HOME_CENTRE.store(((cx as i64) << 32) | (cy as u32 as i64), Ordering::SeqCst);
+    }
+    let cm = find(Search {
+        pid,
+        other_process: true,
+        require_visible: true,
+        hwnd: None,
+    });
+    match cm {
+        Some(cm) => {
+            if home_visible {
+                ShowWindow(home, SW_HIDE);
+            }
+            // Move the manager onto the home's spot only when it first appears, so a window the
+            // user drags is not snapped back every tick.
+            if !CM_SHOWN.swap(true, Ordering::SeqCst) {
+                let packed = HOME_CENTRE.load(Ordering::SeqCst);
+                let cx = (packed >> 32) as i32;
+                let cy = packed as u32 as i32;
+                let mut cr: RECT = std::mem::zeroed();
+                GetWindowRect(cm, &mut cr);
+                let w = cr.right - cr.left;
+                let h = cr.bottom - cr.top;
+                SetWindowPos(
+                    cm,
+                    null_mut(),
+                    cx - w / 2,
+                    cy - h / 2,
+                    0,
+                    0,
+                    SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
+                );
+            }
+        }
+        None => {
+            CM_SHOWN.store(false, Ordering::SeqCst);
+            if !home_visible {
+                ShowWindow(home, SW_SHOW);
+                SetForegroundWindow(home);
+            }
+        }
+    }
+}
 
 struct Search {
     pid: DWORD,
@@ -55,59 +140,4 @@ unsafe extern "system" fn enum_proc(hwnd: HWND, lparam: LPARAM) -> BOOL {
         return FALSE;
     }
     TRUE
-}
-
-/// Hide the home window while `connected`, show it again otherwise. While hiding, move the
-/// connection manager to where the home window was, so it reads as a swap in the same place.
-pub fn set_connected(connected: bool) {
-    unsafe {
-        let pid = GetCurrentProcessId();
-        let home = match find(Search {
-            pid,
-            other_process: false,
-            require_visible: false,
-            hwnd: None,
-        }) {
-            Some(h) => h,
-            None => return,
-        };
-        if !connected {
-            ShowWindow(home, SW_SHOW);
-            SetForegroundWindow(home);
-            return;
-        }
-        let mut r: RECT = std::mem::zeroed();
-        GetWindowRect(home, &mut r);
-        let cx = (r.left + r.right) / 2;
-        let cy = (r.top + r.bottom) / 2;
-        ShowWindow(home, SW_HIDE);
-        // The connection manager opens a moment later, in its own process; wait for it and move it
-        // onto the home window's spot, centred, without touching its size or focus.
-        std::thread::spawn(move || unsafe {
-            for _ in 0..30 {
-                if let Some(cm) = find(Search {
-                    pid,
-                    other_process: true,
-                    require_visible: true,
-                    hwnd: None,
-                }) {
-                    let mut cr: RECT = std::mem::zeroed();
-                    GetWindowRect(cm, &mut cr);
-                    let w = cr.right - cr.left;
-                    let h = cr.bottom - cr.top;
-                    SetWindowPos(
-                        cm,
-                        null_mut(),
-                        cx - w / 2,
-                        cy - h / 2,
-                        0,
-                        0,
-                        SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
-                    );
-                    break;
-                }
-                std::thread::sleep(Duration::from_millis(100));
-            }
-        });
-    }
 }

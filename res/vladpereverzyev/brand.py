@@ -2140,8 +2140,6 @@ def screen_border():
     hook = (
         "            #[cfg(windows)]\n"
         "            crate::vladpereverzyev_screen_border::set_active(Self::non_port_forward_conn_count() > 0);\n"
-        "            #[cfg(windows)]\n"
-        "            crate::vladpereverzyev_single_window::set_connected(Self::non_port_forward_conn_count() > 0);\n"
     )
     # Switch the frame on when a connection authorizes.
     replace_once(
@@ -2175,6 +2173,16 @@ def single_window():
         "Cargo.toml",
         'winapi = { version = "0.3", features = [\n    "winuser",\n    "wingdi",\n    "libloaderapi",\n',
         'winapi = { version = "0.3", features = [\n    "winuser",\n    "wingdi",\n    "libloaderapi",\n    "processthreadsapi",\n',
+    )
+    # Start the monitor the moment a peer begins connecting (before it is let in), so the home
+    # window is already stepping aside while the connect page is up and the two are never shown
+    # side by side.
+    replace_once(
+        "src/server/connection.rs",
+        "    fn try_start_cm(&mut self, peer_id: String, name: String, authorized: bool) {\n",
+        "    fn try_start_cm(&mut self, peer_id: String, name: String, authorized: bool) {\n"
+        "        #[cfg(windows)]\n"
+        "        crate::vladpereverzyev_single_window::ensure_monitor();\n",
     )
 
 
