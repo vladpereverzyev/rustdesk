@@ -918,6 +918,10 @@ def updates():
                  "        ),\n        ),\n      ]);")
     # 300 instead of 280, so the name in the title bar keeps some air before the buttons.
     replace_once(home, "width: isIncomingOnly ? 280.0 : 200.0,", "width: isIncomingOnly ? 300.0 : 200.0,")
+    # The pane takes the same midnight as the scaffold, so the few pixels the window adds on the
+    # right for its border blend in instead of showing a slate line beside the pane.
+    replace_once(home, "        width: isIncomingOnly ? 300.0 : 200.0,\n        color: Theme.of(context).colorScheme.background,",
+                 "        width: isIncomingOnly ? 300.0 : 200.0,\n        color: Theme.of(context).scaffoldBackgroundColor,")
     # RustDesk adds 11 to the width for the window border; Windows 10 takes 14, so the last 3
     # of the pane were cut off and the right margins looked smaller than the left ones.
     replace_once("flutter/lib/common.dart", "  final magicWidth = isWindows ? 11.0 : 2.0;",
@@ -1805,7 +1809,9 @@ class _CmStatusLineState extends State<_CmStatusLine> {
     final client = widget.client;
     final live = client.authorized && !client.disconnected;
     final text = client.authorized
-        ? (client.disconnected ? translate("Disconnected") : translate("Connected"))
+        ? (client.disconnected
+            ? translate("Disconnected")
+            : "${translate("Connected")} ${formatID(client.peerId)}")
         : "${translate("Request access to your device")}...";
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -1899,13 +1905,6 @@ CM_HEADER_BUILD = """  Widget build(BuildContext context) {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0, right: 20, top: 2, bottom: 12),
-          child: Text(
-            'Vladyslav Pereverzyev',
-            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w300, color: Colors.white),
-          ),
-        ),
       ],
     );
   }
@@ -1968,7 +1967,7 @@ def connection_window():
     # with the azure line, grey icons, the pills and the status line on the gradient. The account
     # name of the other side (often an e-mail address) is never shown.
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeClosedChat = Size(300, 490);",
-                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 595);")
+                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 410);")
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeOpenChat = Size(700, 490);",
                  "const Size kConnectionManagerWindowSizeOpenChat = Size(714, 595);")
     replace_once("flutter/lib/models/server_model.dart", "        label: client.name,\n",
@@ -1981,6 +1980,11 @@ def connection_window():
     # "Vladyslav Pereverzyev" the whole time a session is open.
     replace_once(server, "          windowManager.setTitle(getWindowNameWithId(client.peerId));\n",
                  f"          windowManager.setTitle('{DISPLAY_NAME}');\n")
+    # Name the window as soon as the manager opens, not only when a tab is picked: a single
+    # incoming request never fires onSelected, so without this the title stays unset and the
+    # home window, which hides itself once the named manager window appears, never steps aside.
+    replace_once(server, "  void initState() {\n    gFFI.serverModel.updateClientState();\n",
+                 "  void initState() {\n    gFFI.serverModel.updateClientState();\n    windowManager.setTitle('" + DISPLAY_NAME + "');\n")
     replace_once(server, "              showTitle: false,\n              showMaximize: false,",
                  "              showTitle: true,\n              showMaximize: false,")
     replace_once(server, "              selectedBorderColor: MyTheme.accent,\n              maxLabelWidth: 100,",
