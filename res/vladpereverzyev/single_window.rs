@@ -32,7 +32,6 @@ use winapi::{
 const TITLE: &str = "Vladyslav Pereverzyev";
 
 static MONITOR: AtomicBool = AtomicBool::new(false);
-static CM_SHOWN: AtomicBool = AtomicBool::new(false);
 static HOME_CENTRE: AtomicI64 = AtomicI64::new(0); // packed: (x << 32) | (y as u32)
 
 /// Start the monitor the first time a peer begins connecting; it runs for the life of the app.
@@ -79,29 +78,20 @@ unsafe fn tick(pid: DWORD) {
             if home_visible {
                 ShowWindow(home, SW_HIDE);
             }
-            // Move the manager onto the home's spot only when it first appears, so a window the
-            // user drags is not snapped back every tick.
-            if !CM_SHOWN.swap(true, Ordering::SeqCst) {
-                let packed = HOME_CENTRE.load(Ordering::SeqCst);
-                let cx = (packed >> 32) as i32;
-                let cy = packed as u32 as i32;
-                let mut cr: RECT = std::mem::zeroed();
-                GetWindowRect(cm, &mut cr);
-                let w = cr.right - cr.left;
-                let h = cr.bottom - cr.top;
-                SetWindowPos(
-                    cm,
-                    null_mut(),
-                    cx - w / 2,
-                    cy - h / 2,
-                    0,
-                    0,
-                    SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
-                );
+            // Keep the manager on the home window's spot, centred, so it reads as a swap in place
+            // even if it tries to open or settle elsewhere.
+            let packed = HOME_CENTRE.load(Ordering::SeqCst);
+            let cx = (packed >> 32) as i32;
+            let cy = packed as u32 as i32;
+            let mut cr: RECT = std::mem::zeroed();
+            GetWindowRect(cm, &mut cr);
+            let (w, h) = (cr.right - cr.left, cr.bottom - cr.top);
+            let (tx, ty) = (cx - w / 2, cy - h / 2);
+            if (cr.left - tx).abs() > 2 || (cr.top - ty).abs() > 2 {
+                SetWindowPos(cm, null_mut(), tx, ty, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
             }
         }
         None => {
-            CM_SHOWN.store(false, Ordering::SeqCst);
             if !home_visible {
                 ShowWindow(home, SW_SHOW);
                 SetForegroundWindow(home);
@@ -133,9 +123,11 @@ unsafe extern "system" fn enum_proc(hwnd: HWND, lparam: LPARAM) -> BOOL {
     if s.require_visible && IsWindowVisible(hwnd) == 0 {
         return TRUE;
     }
+    // The connection manager retitles its window with the peer id ("Vladyslav Pereverzyev - 123"),
+    // so match on the name being present rather than on the exact title.
     let mut buf = [0u16; 128];
     let n = GetWindowTextW(hwnd, buf.as_mut_ptr(), buf.len() as i32);
-    if n > 0 && String::from_utf16_lossy(&buf[..n as usize]) == TITLE {
+    if n > 0 && String::from_utf16_lossy(&buf[..n as usize]).contains(TITLE) {
         s.hwnd = Some(hwnd);
         return FALSE;
     }
