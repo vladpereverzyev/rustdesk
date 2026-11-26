@@ -33,6 +33,7 @@ const TITLE: &str = "Vladyslav Pereverzyev";
 
 static MONITOR: AtomicBool = AtomicBool::new(false);
 static HOME_CENTRE: AtomicI64 = AtomicI64::new(0); // packed: (x << 32) | (y as u32)
+static PLACED_CM: AtomicI64 = AtomicI64::new(0); // hwnd of the manager already dropped onto the spot
 
 /// Start the monitor the first time a peer begins connecting; it runs for the life of the app.
 pub fn ensure_monitor() {
@@ -78,20 +79,22 @@ unsafe fn tick(pid: DWORD) {
             if home_visible {
                 ShowWindow(home, SW_HIDE);
             }
-            // Keep the manager on the home window's spot, centred, so it reads as a swap in place
-            // even if it tries to open or settle elsewhere.
-            let packed = HOME_CENTRE.load(Ordering::SeqCst);
-            let cx = (packed >> 32) as i32;
-            let cy = packed as u32 as i32;
-            let mut cr: RECT = std::mem::zeroed();
-            GetWindowRect(cm, &mut cr);
-            let (w, h) = (cr.right - cr.left, cr.bottom - cr.top);
-            let (tx, ty) = (cx - w / 2, cy - h / 2);
-            if (cr.left - tx).abs() > 2 || (cr.top - ty).abs() > 2 {
+            // Drop the manager onto the home window's spot once, when it first appears, then leave
+            // it alone so the person can move it. Re-centring it every tick would pin it in place
+            // and fight the drag.
+            if PLACED_CM.swap(cm as i64, Ordering::SeqCst) != cm as i64 {
+                let packed = HOME_CENTRE.load(Ordering::SeqCst);
+                let cx = (packed >> 32) as i32;
+                let cy = packed as u32 as i32;
+                let mut cr: RECT = std::mem::zeroed();
+                GetWindowRect(cm, &mut cr);
+                let (w, h) = (cr.right - cr.left, cr.bottom - cr.top);
+                let (tx, ty) = (cx - w / 2, cy - h / 2);
                 SetWindowPos(cm, null_mut(), tx, ty, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
             }
         }
         None => {
+            PLACED_CM.store(0, Ordering::SeqCst);
             if !home_visible {
                 ShowWindow(home, SW_SHOW);
                 SetForegroundWindow(home);

@@ -931,6 +931,31 @@ def updates():
                  "            backgroundColor: hover.value\n"
                  "                ? Theme.of(context).colorScheme.background\n"
                  "                : Colors.transparent,")
+    # The id and password fields carry no fill on the home: the theme fills every field with the
+    # slate panel colour, which showed as a lighter box on the midnight pane. Only these two drop
+    # it, so fields elsewhere keep the theme.
+    replace_once(home,
+                 "                        decoration: InputDecoration(\n"
+                 "                          border: InputBorder.none,\n"
+                 "                          contentPadding: EdgeInsets.only(top: 10, bottom: 10),\n"
+                 "                        ),",
+                 "                        decoration: InputDecoration(\n"
+                 "                          border: InputBorder.none,\n"
+                 "                          filled: false,\n"
+                 "                          contentPadding: EdgeInsets.only(top: 10, bottom: 10),\n"
+                 "                        ),")
+    replace_once(home,
+                 "                            decoration: InputDecoration(\n"
+                 "                              border: InputBorder.none,\n"
+                 "                              contentPadding:\n"
+                 "                                  EdgeInsets.only(top: 14, bottom: 10),\n"
+                 "                            ),",
+                 "                            decoration: InputDecoration(\n"
+                 "                              border: InputBorder.none,\n"
+                 "                              filled: false,\n"
+                 "                              contentPadding:\n"
+                 "                                  EdgeInsets.only(top: 14, bottom: 10),\n"
+                 "                            ),")
     # RustDesk adds 11 to the width for the window border; Windows 10 takes 14, so the last 3
     # of the pane were cut off and the right margins looked smaller than the left ones.
     replace_once("flutter/lib/common.dart", "  final magicWidth = isWindows ? 11.0 : 2.0;",
@@ -1818,9 +1843,7 @@ class _CmStatusLineState extends State<_CmStatusLine> {
     final client = widget.client;
     final live = client.authorized && !client.disconnected;
     final text = client.authorized
-        ? (client.disconnected
-            ? translate("Disconnected")
-            : formatID(client.peerId))
+        ? (client.disconnected ? translate("Disconnected") : translate("Connected"))
         : "${translate("Request access to your device")}...";
     return Column(
       mainAxisSize: MainAxisSize.min,
