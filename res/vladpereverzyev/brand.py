@@ -922,6 +922,15 @@ def updates():
     # right for its border blend in instead of showing a slate line beside the pane.
     replace_once(home, "        width: isIncomingOnly ? 300.0 : 200.0,\n        color: Theme.of(context).colorScheme.background,",
                  "        width: isIncomingOnly ? 300.0 : 200.0,\n        color: Theme.of(context).scaffoldBackgroundColor,")
+    # The menu button carries no disc on the midnight pane: it is transparent until hovered, when
+    # it gets a soft slate circle. The old filled background stood out once the pane went midnight.
+    replace_once(home,
+                 "            backgroundColor: hover.value\n"
+                 "                ? Theme.of(context).scaffoldBackgroundColor\n"
+                 "                : Theme.of(context).colorScheme.background,",
+                 "            backgroundColor: hover.value\n"
+                 "                ? Theme.of(context).colorScheme.background\n"
+                 "                : Colors.transparent,")
     # RustDesk adds 11 to the width for the window border; Windows 10 takes 14, so the last 3
     # of the pane were cut off and the right margins looked smaller than the left ones.
     replace_once("flutter/lib/common.dart", "  final magicWidth = isWindows ? 11.0 : 2.0;",
