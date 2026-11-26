@@ -1811,7 +1811,7 @@ class _CmStatusLineState extends State<_CmStatusLine> {
     final text = client.authorized
         ? (client.disconnected
             ? translate("Disconnected")
-            : "${translate("Connected")} ${formatID(client.peerId)}")
+            : formatID(client.peerId))
         : "${translate("Request access to your device")}...";
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -1967,7 +1967,7 @@ def connection_window():
     # with the azure line, grey icons, the pills and the status line on the gradient. The account
     # name of the other side (often an e-mail address) is never shown.
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeClosedChat = Size(300, 490);",
-                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 410);")
+                 "const Size kConnectionManagerWindowSizeClosedChat = Size(314, 500);")
     replace_once("flutter/lib/consts.dart", "const Size kConnectionManagerWindowSizeOpenChat = Size(700, 490);",
                  "const Size kConnectionManagerWindowSizeOpenChat = Size(714, 595);")
     replace_once("flutter/lib/models/server_model.dart", "        label: client.name,\n",
@@ -1985,6 +1985,31 @@ def connection_window():
     # home window, which hides itself once the named manager window appears, never steps aside.
     replace_once(server, "  void initState() {\n    gFFI.serverModel.updateClientState();\n",
                  "  void initState() {\n    gFFI.serverModel.updateClientState();\n    windowManager.setTitle('" + DISPLAY_NAME + "');\n")
+    # The window fits its own state instead of one fixed height: the request state carries two
+    # buttons and needs more room than the open session, which has none. Each state gets just
+    # enough, so no view is cramped and none leaves a gap. Skipped while the chat side page is
+    # open, which sets its own width and height.
+    replace_once(server, "  Widget build(BuildContext context) {\n    final serverModel = Provider.of<ServerModel>(context);\n",
+                 "  Widget build(BuildContext context) {\n    final serverModel = Provider.of<ServerModel>(context);\n"
+                 "    WidgetsBinding.instance.addPostFrameCallback((_) => _fitCmHeight(serverModel));\n")
+    replace_once(
+        server,
+        "  @override\n  void dispose() {\n    WidgetsBinding.instance.removeObserver(this);\n    super.dispose();\n  }\n",
+        "  @override\n  void dispose() {\n    WidgetsBinding.instance.removeObserver(this);\n    super.dispose();\n  }\n\n"
+        "  double _cmFitHeight = 0;\n"
+        "  void _fitCmHeight(ServerModel serverModel) async {\n"
+        "    if (!isWindows) return;\n"
+        "    if (gFFI.chatModel.isShowCMSidePage) return;\n"
+        "    final clients = serverModel.clients;\n"
+        "    if (clients.isEmpty) return;\n"
+        "    final target = clients.any((c) => !c.authorized) ? 500.0 : 410.0;\n"
+        "    if ((target - _cmFitHeight).abs() < 1) return;\n"
+        "    _cmFitHeight = target;\n"
+        "    try {\n"
+        "      await windowManager.setSize(Size(kConnectionManagerWindowSizeClosedChat.width, target));\n"
+        "    } catch (_) {}\n"
+        "  }\n",
+    )
     replace_once(server, "              showTitle: false,\n              showMaximize: false,",
                  "              showTitle: true,\n              showMaximize: false,")
     replace_once(server, "              selectedBorderColor: MyTheme.accent,\n              maxLabelWidth: 100,",
